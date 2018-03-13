@@ -40,26 +40,29 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
     private Spinner spn_subfamily;
     private Spinner spn_type;
     private Spinner spn_location;
+    private Spinner spn_group;
+    private Spinner spn_departament;
     private DtoBundle dtoBundle;
     private ModelNewExhibition modelNewExhibition;
-    private String path="";
+    private String path = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_exhibition);
+        getSupportActionBar().hide();
         init();
     }
 
     private void init() {
-        dtoBundle = (DtoBundle)getIntent().getExtras().get(getResources().getString(R.string.app_bundle_name));
-        spn_manufacturer=(Spinner)findViewById(R.id.spn_manufacturer);
-        spn_category=(Spinner)findViewById(R.id.spn_category);
-        spn_family=(Spinner)findViewById(R.id.spn_family);
-        spn_subfamily=(Spinner)findViewById(R.id.spn_subfamily);
-        spn_type=(Spinner)findViewById(R.id.spn_type);
-        spn_location=(Spinner)findViewById(R.id.spn_location);
-        modelNewExhibition=new ModelNewExhibition(dtoBundle);
+        dtoBundle = (DtoBundle) getIntent().getExtras().get(getResources().getString(R.string.app_bundle_name));
+        spn_manufacturer = (Spinner) findViewById(R.id.spn_manufacturer);
+        spn_category = (Spinner) findViewById(R.id.spn_category);
+        spn_family = (Spinner) findViewById(R.id.spn_family);
+        spn_subfamily = (Spinner) findViewById(R.id.spn_subfamily);
+        spn_type = (Spinner) findViewById(R.id.spn_type);
+        spn_location = (Spinner) findViewById(R.id.spn_location);
+        modelNewExhibition = new ModelNewExhibition(dtoBundle);
 
         spn_manufacturer.setOnItemSelectedListener(this);
         spn_category.setOnItemSelectedListener(this);
@@ -71,11 +74,13 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
         spn_manufacturer.setAdapter(modelNewExhibition.getItemAdapterManufacturer());
         spn_type.setAdapter(modelNewExhibition.getItemAdapterType());
         spn_location.setAdapter(modelNewExhibition.getItemAdapterLocation());
+
+
     }
 
 
-    public void onClickPhoto(View v){
-        path = getResources().getString(R.string.app_path_photo) + System.currentTimeMillis() +".jpg";
+    public void onClickPhoto(View v) {
+        path = getResources().getString(R.string.app_path_photo) + System.currentTimeMillis() + ".jpg";
         File file = new File(path);
         Uri outputFileUri = Uri.fromFile(file);
         Intent intent = new Intent(
@@ -86,18 +91,18 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
         startActivityForResult(intent, 0);
     }
 
-    public void onClicksave(View v){
-        DtoReportHeadExhibition dtoHead=new DtoReportHeadExhibition();
-        DtoReportExhibitionDetail dtoDetail=new DtoReportExhibitionDetail();
-        String hash= Crypto.MD5(System.currentTimeMillis()+" "+new Random().nextInt());
+    public void onClicksave(View v) {
+        DtoReportHeadExhibition dtoHead = new DtoReportHeadExhibition();
+        DtoReportExhibitionDetail dtoDetail = new DtoReportExhibitionDetail();
+        String hash = Crypto.MD5(System.currentTimeMillis() + " " + new Random().nextInt());
 
-        if(path.equals("")){
-            Toast.makeText(this,"Debe tomar una fotografía",Toast.LENGTH_SHORT).show();
-        }else {
+        if (path.equals("")) {
+            Toast.makeText(this, "Debe tomar una fotografía", Toast.LENGTH_SHORT).show();
+        } else {
             dtoHead.setIdReportLocal(dtoBundle.getIdReportLocal()).
                     setIdTypeExhibition(modelNewExhibition.getItemPositionType(spn_type.getSelectedItemPosition()).getIdItemRelation()).
                     setIdPdv((int) dtoBundle.getIdPDV()).
-                    setCreatedDate(System.currentTimeMillis()+"").
+                    setCreatedDate(System.currentTimeMillis() + "").
                     setHash(hash).
                     setSend(0);
             dtoDetail.setIdReportLocal(dtoBundle.getIdReportLocal()).
@@ -110,11 +115,11 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
                     setType(modelNewExhibition.getItemPositionType(spn_type.getSelectedItemPosition()).getIdItemRelation()).
                     setLocation(modelNewExhibition.getItemPositionLocation(spn_location.getSelectedItemPosition()).getIdItemRelation()).
                     setPath(path).
-                    setHash(Crypto.MD5(System.currentTimeMillis()+" "+new Random().nextInt())).
+                    setHash(Crypto.MD5(System.currentTimeMillis() + " " + new Random().nextInt())).
                     setSend(0).
                     setFamily(modelNewExhibition.getItemPositionSubFamily(spn_subfamily.getSelectedItemPosition()).getValue());
-            modelNewExhibition.saveReport(dtoHead,dtoDetail);
-            DtoReportExhibitionMantained dtoReportExhibitionMantained=new DtoReportExhibitionMantained();
+            modelNewExhibition.saveReport(dtoHead, dtoDetail);
+            DtoReportExhibitionMantained dtoReportExhibitionMantained = new DtoReportExhibitionMantained();
             dtoReportExhibitionMantained.setTypeModule(2);
             dtoReportExhibitionMantained.setLocation(modelNewExhibition.getItemPositionLocation(spn_location.getSelectedItemPosition()).getValue());
             dtoReportExhibitionMantained.setExhibition_name(modelNewExhibition.getItemPositionType(spn_type.getSelectedItemPosition()).getValue());
@@ -136,8 +141,8 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
         if (arg1 == RESULT_OK) {
             File f = new File(path);
             if (f.exists()) {
-                ResizePicture.resizeAndRotate(path,getResources().getInteger(R.integer.SIZE_WIDTH_PHOTO),
-                       getResources().getInteger(R.integer.SIZE_HEIGHT_PHOTO), "Fóto Exito "
+                ResizePicture.resizeAndRotate(path, getResources().getInteger(R.integer.SIZE_WIDTH_PHOTO),
+                        getResources().getInteger(R.integer.SIZE_HEIGHT_PHOTO), "Fóto Exito "
                                 + new DaoPdv().SelectById(dtoBundle.getIdPDV())
                                 .getName());
             } else
@@ -150,7 +155,7 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        switch (parent.getId()){
+        switch (parent.getId()) {
             case R.id.spn_manufacturer:
                 spn_category.setAdapter(modelNewExhibition.getItemAdapterCategory(modelNewExhibition.getItemPositionManufacturer(position).getIdItemRelation()));
                 break;
@@ -159,6 +164,12 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
                 break;
             case R.id.spn_family:
                 spn_subfamily.setAdapter(modelNewExhibition.getItemAdapterSubFamily(modelNewExhibition.getItemPositionFamily(position).getIdItemRelation()));
+                break;
+            case R.id.spn_location:
+                spn_category.setAdapter(modelNewExhibition.getItemAdapterGroup(modelNewExhibition.getItemPositionGroup(position).getIdItemRelation()));
+                break;
+            case R.id.spn_group:
+                spn_group.setAdapter(modelNewExhibition.getItemAdapterDepartament(modelNewExhibition.getItemPositionDepartament(position).getIdItemRelation()));
                 break;
         }
 

@@ -33,9 +33,11 @@ public class DaoCExhibition extends DAO {
     private final String CATEGORY = "category";
     private final String FAMILY = "family";
     private final String SUB_FAMILY = "sub_famlly";
-    private final String LOCATION = "location";
     private final String TYPEEXHIBITION = "typeExhibition";
     private final String GROUP = "grupo";
+    private final String IDLOCATION = "id_location";
+    private final String LOCATION = "location";
+    private final String IDDEPARTASMENT = "id_departament";
     private final String DEPARTAMENT = "department";
 
     public DaoCExhibition() {
@@ -53,8 +55,8 @@ public class DaoCExhibition extends DAO {
                     + TABLE_NAME + " (" + EXHIBITION_NAME + "," + ID_TYPE_EXHIBITION + ","
                     + ID_PDV + "," + MIN_PHOTOS + "," + MAX_PHOTOS + "," + END_DATE + "," + HASH + ","
                     + ID_EXHIBITION_GROUP + "," + MANUFACTURER + "," + CATEGORY + "," + FAMILY + "," + SUB_FAMILY + "," + LOCATION + "," + TYPEEXHIBITION
-                    + "," + GROUP + "," + DEPARTAMENT + ") " +
-                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+                    + "," + GROUP + "," + DEPARTAMENT + "," + IDDEPARTASMENT + "," + IDLOCATION + ") " +
+                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             db.beginTransaction();
             for (DtoCExhibition DtoCatalog : obj) {
                 try {
@@ -136,6 +138,16 @@ public class DaoCExhibition extends DAO {
                     insStmnt.bindString(16, DtoCatalog.getDepartment());
                 } catch (Exception e) {
                     insStmnt.bindNull(16);
+                }
+                try {
+                    insStmnt.bindLong(17, DtoCatalog.getIdDepartment());
+                } catch (Exception e) {
+                    insStmnt.bindNull(17);
+                }
+                try {
+                    insStmnt.bindLong(18, DtoCatalog.getIdLocation());
+                } catch (Exception e) {
+                    insStmnt.bindNull(18);
                 }
 
                 insStmnt.executeInsert();

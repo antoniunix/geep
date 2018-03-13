@@ -89,7 +89,7 @@ public class DaoMeasurementCauseExhibition extends DAO {
                 "INNER JOIN measurement_cause_exhibition ON measurement_cause_exhibition.id_measurement = measurement_head_exhibition.id\n" +
                 "WHERE  (measurement_exhibition_canal.id_item_relation=" + dtoPdv.getIdCanal() + " OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation=" + dtoPdv.getIdClient() + " OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation=" + dtoPdv.getIdClientFormat() + " OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation=" + dtoPdv.getIdFormat() + " OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation=" + dtoPdv.getId() + " OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation=" + dtoPdv.getIdRtm() + " OR measurement_exhibition_rtm.id_item_relation ISNULL) ";
         cursor = db.rawQuery(qry, null);

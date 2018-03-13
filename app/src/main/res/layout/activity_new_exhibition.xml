@@ -35,10 +35,10 @@
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fabricante" />
+        android:text="Fabricante"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_manufacturer"
@@ -47,10 +47,10 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Categoría" />
+        android:text="Categoría"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_category"
@@ -59,10 +59,10 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Familia" />
+        android:text="Familia"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_family"
@@ -71,10 +71,10 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Subfamilia" />
+        android:text="Subfamilia"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_subfamily"
@@ -83,10 +83,10 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tipo" />
+        android:text="Tipo"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_type"
@@ -95,13 +95,37 @@
         android:layout_margin="5dp" />
 
     <TextView
-        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ubicación" />
+        android:text="Foto de Éxito"
+        android:textSize="12sp" />
+
+    <Spinner
+        android:id="@+id/spn_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:textSize="12sp" />
 
     <Spinner
         android:id="@+id/spn_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Departamento"
+        android:textSize="12sp" />
+
+    <Spinner
+        android:id="@+id/spn_departament"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" />

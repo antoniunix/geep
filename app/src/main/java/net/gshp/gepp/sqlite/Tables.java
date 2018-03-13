@@ -351,6 +351,8 @@ public class Tables {
             "sub_famlly TEXT," +
             "grupo TEXT," +
             "department TEXT," +
+            "id_location INTEGER," +
+            "id_departament INTEGER," +
             "location TEXT)";
 
     public static final String Table_Subordinado = "CREATE TABLE subordinate("

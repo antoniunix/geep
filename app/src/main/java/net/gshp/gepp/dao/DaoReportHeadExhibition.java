@@ -1,6 +1,7 @@
 package net.gshp.gepp.dao;
 
 import android.content.ContentValues;
+import android.util.Log;
 
 import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.dto.DtoReportHeadExhibition;
@@ -51,7 +52,7 @@ public class DaoReportHeadExhibition extends DAO {
 
     public List<DtoTypeExhibition> SelectManufacturer(DtoPdv dtoPdv) {
         db = helper.getWritableDatabase();
-        cursor = db.rawQuery("SELECT\n" +
+        String qry="SELECT\n" +
                 "measurement_item_exhibition.id_item_relation,\n" +
                 "measurement_item_exhibition.value\n" +
                 "FROM\n" +
@@ -66,12 +67,15 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
                 "c_type_catalog_exhibition.id=1\n" +
-                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
+                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC";
+        Log.e("manufacturer","qry\n"+qry);
+        cursor = db.rawQuery(qry, null);
+        Log.e("qry","");
         List<DtoTypeExhibition> obj = new ArrayList<>();
         DtoTypeExhibition catalogo;
         if (cursor.moveToFirst()) {
@@ -106,11 +110,92 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
                 "c_type_catalog_exhibition.id=2 and measurement_item_exhibition.parent="+idManufacturer+"\n" +
+                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
+        List<DtoTypeExhibition> obj = new ArrayList<>();
+        DtoTypeExhibition catalogo;
+        if (cursor.moveToFirst()) {
+            Integer idItemRelation = cursor.getColumnIndexOrThrow("id_item_relation");
+            Integer value = cursor.getColumnIndexOrThrow("value");
+
+            do {
+                catalogo = new DtoTypeExhibition();
+                catalogo.setIdItemRelation(cursor.getInt(idItemRelation));
+                catalogo.setValue(cursor.getString(value));
+                obj.add(catalogo);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return obj;
+    }
+
+    public List<DtoTypeExhibition> SelectGroup(DtoPdv dtoPdv,int idLocation) {
+        db = helper.getWritableDatabase();
+        cursor = db.rawQuery("SELECT\n" +
+                "measurement_item_exhibition.id_item_relation,\n" +
+                "measurement_item_exhibition.value\n" +
+                "FROM\n" +
+                "c_type_catalog_exhibition\n" +
+                "INNER JOIN measurement_item_exhibition ON measurement_item_exhibition.id_type_catalog = c_type_catalog_exhibition.id " +
+                "AND measurement_item_exhibition.id_type_catalog = c_type_catalog_exhibition.id\n" +
+                "LEFT JOIN measurement_exhibition_canal ON measurement_exhibition_canal.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_client ON measurement_exhibition_client.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_format ON measurement_exhibition_format.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_pdv ON measurement_exhibition_pdv.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_rtm ON measurement_exhibition_rtm.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
+                "c_type_catalog_exhibition.id=6 and measurement_item_exhibition.parent="+idLocation+"\n" +
+                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
+        List<DtoTypeExhibition> obj = new ArrayList<>();
+        DtoTypeExhibition catalogo;
+        if (cursor.moveToFirst()) {
+            Integer idItemRelation = cursor.getColumnIndexOrThrow("id_item_relation");
+            Integer value = cursor.getColumnIndexOrThrow("value");
+
+            do {
+                catalogo = new DtoTypeExhibition();
+                catalogo.setIdItemRelation(cursor.getInt(idItemRelation));
+                catalogo.setValue(cursor.getString(value));
+                obj.add(catalogo);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return obj;
+    }
+    public List<DtoTypeExhibition> SelectDepartament(DtoPdv dtoPdv,int group) {
+        db = helper.getWritableDatabase();
+        cursor = db.rawQuery("SELECT\n" +
+                "measurement_item_exhibition.id_item_relation,\n" +
+                "measurement_item_exhibition.value\n" +
+                "FROM\n" +
+                "c_type_catalog_exhibition\n" +
+                "INNER JOIN measurement_item_exhibition ON measurement_item_exhibition.id_type_catalog = c_type_catalog_exhibition.id " +
+                "AND measurement_item_exhibition.id_type_catalog = c_type_catalog_exhibition.id\n" +
+                "LEFT JOIN measurement_exhibition_canal ON measurement_exhibition_canal.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_client ON measurement_exhibition_client.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_format ON measurement_exhibition_format.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_pdv ON measurement_exhibition_pdv.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_rtm ON measurement_exhibition_rtm.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
+                "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
+                "c_type_catalog_exhibition.id=7 and measurement_item_exhibition.parent="+group+"\n" +
                 "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
         List<DtoTypeExhibition> obj = new ArrayList<>();
         DtoTypeExhibition catalogo;
@@ -147,7 +232,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
@@ -188,7 +273,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
@@ -227,7 +312,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = type_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) ", null);
@@ -266,7 +351,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "LEFT JOIN measurement_exhibition_region ON measurement_exhibition_region.id_measurement = measurement_item_exhibition.id_measurement\n" +
                 "WHERE (measurement_exhibition_canal.id_item_relation="+dtoPdv.getIdCanal()+" OR measurement_exhibition_canal.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_client.id_item_relation="+dtoPdv.getIdClient()+" OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdClientFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
+                "(measurement_exhibition_format.id_item_relation="+dtoPdv.getIdFormat()+" OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
@@ -289,6 +374,9 @@ public class DaoReportHeadExhibition extends DAO {
         db.close();
         return obj;
     }
+
+
+
     public List<List<DtoReportHeadExhibition>> selectToSend() {
         db = helper.getWritableDatabase();
         cursor = db.rawQuery("SELECT\n" +
