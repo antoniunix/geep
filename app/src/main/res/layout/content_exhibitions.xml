@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_exhibitions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.ReportExhibition"
+    tools:showIn="@layout/activity_exhibitions">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txt_exhibition_head_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/report_exhibition_name"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_brand_head_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/report_family"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_brand_head_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/report_location"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_yes_head_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/report_exhibition_yes"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_no_head_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/report_exhibition_no"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lst_exhibition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+
+        android:id="@+id/lyt_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save_exhibition"
+            style="@style/btnGeneric"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorBtnBlueSecond"
+            android:text="Guardar" />
+
+        <Button
+            android:id="@+id/btn_add_exhibition"
+            style="@style/btnGeneric"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorBtnBluePrimary"
+            android:text="Agregar" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

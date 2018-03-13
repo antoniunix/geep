@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ToolBar -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/txtNamePdv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNamePdv" />
+
+    <TextView
+        android:id="@+id/txtInfoLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sotreData" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtInfoLabel">
+
+        <RelativeLayout
+            android:id="@+id/rlyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true" />
+
+            <LinearLayout
+                android:id="@+id/lyt_scorecard_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/map"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtpdvName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_weight="3"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/txtporcent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rly_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyt_scorecard_info"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <!--Info Manger-->
+                <RelativeLayout
+                    android:id="@+id/rlyManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgManager"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+                    <TextView
+                        android:id="@+id/txtManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imgManager"
+                        android:text="@string/manager_store" />
+
+                    <TextView
+                        android:id="@+id/nameManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imgManager"
+                        android:layout_below="@+id/txtManager" />
+
+                </RelativeLayout>
+
+                <!--Info Manger-->
+                <RelativeLayout
+                    android:id="@+id/rlyBoss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/rlyManager">
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imgBoss"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+                    <TextView
+                        android:id="@+id/txtBoss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imgBoss"
+                        android:text="@string/manager_store" />
+
+                    <TextView
+                        android:id="@+id/nameBossr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imgBoss"
+                        android:layout_below="@+id/txtBoss" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtAddressLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlyBoss"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtAddressLabel" />
+
+                <TextView
+                    android:id="@+id/txtdayToVisitLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daytoVisit" />
+
+
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btninit"
+                style="@style/btnGeneric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rly_info"
+                android:layout_alignParentEnd="true"
+                android:background="@color/colorBtnBluePrimary"
+                android:text="@string/init" />
+
+            <Button
+                android:layout_alignParentStart="true"
+                android:id="@+id/btncancel"
+                style="@style/btnGeneric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/btninit"
+                android:layout_below="@+id/rly_info"
+                android:background="@color/colorBtnBlueSecond"
+                android:text="@string/app_btn_cancel" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

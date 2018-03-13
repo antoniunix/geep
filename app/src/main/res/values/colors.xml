@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#000000</color>
+    <color name="color_txt_black">#414648</color>
+    <color name="colorBlue">#4689cd</color>
+    <color name="colorBackgroundGeneral">#f6f7fb</color>
+    <color name="color_txt_info_user">#3f4652</color>
+    <color name="color_txt_second">#aaaaaa</color>
+    <color name="color_txt_head_cardview">#1d5abc</color>
+    <color name="color_txt_green">#21bd96</color>
+    <color name="colorDivider">#e1e1e1</color>
+    <color name="colorShapeCostInit">#db0001</color>
+    <color name="colorShapeCostFinish">#fe0000</color>
+    <color name="colorSelectedNavigationBar">#17468f</color>
+    <color name="colorNoSelectedNavigationBar">#afafaf</color>
+    <color name="colorgrayBackgroundVisit">#f5f5f5</color>
+    <color name="colorgrayTextVisit">#a5a5a5</color>
+    <color name="colorgrayTextNumTaskVisit">#666666</color>
+
+    <color name="colorScheduleIncomplete">#ECCF0B</color>
+    <color name="colorScheduleComplete">#27E255</color>
+    <color name="colorScheduleNotDone">#FE0000</color>
+    <color name="colorScheduleActive">#0085B2</color>
+    <color name="colorScheduleInactive">#999999</color>
+
+    <color name="colorStatusGreen">#62da01</color>
+    <color name="colorStatusYellow">#f99829</color>
+    <color name="colorStatusReed">#f60100</color>
+    <color name="colorStatusGray">#aaaaaa</color>
+    <color name="colorbackgraunDay">#f5f5f5</color>
+
+    <color name="colorTxtTextNewTaskRollNormal">#bdbdbd</color>
+    <color name="colorgrayTaskRow">#f5f5f5</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="colorZebra1">#F0f0f0</color>
+    <color name="colorZebra2">#F6f6f6</color>
+    <color name="colorBackgroundBarUnderHeader">#EBEBEB</color>
+    <color name="colorBackgroundLineUnderHeader">#d1d1d1</color>
+    <color name="colorBtnRedPrimary">#FF0000</color>
+    <color name="colorBtnRedSecond">#EB5D66</color>
+    <color name="colorBtnBluePrimary">#0A5996</color>
+    <color name="colorBtnBlueSecond">#0E7AD1</color>
+    <color name="color_gray">#A6A8AD</color>
+
+</resources>

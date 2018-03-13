@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "765389416408",
+    "firebase_url": "https://gepp-25ef1.firebaseio.com",
+    "project_id": "gepp-25ef1",
+    "storage_bucket": "gepp-25ef1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765389416408:android:f177051115a86f23",
+        "android_client_info": {
+          "package_name": "net.gshp.gepp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765389416408-5o9ll8h30tegha14fmqq6fn0ttddv16g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.gshp.gepp",
+            "certificate_hash": "af1c28e01dbeb49bd9bc744b8b93bad8d0c7d0df"
+          }
+        },
+        {
+          "client_id": "765389416408-1l5686ufq74akrptpo6p78guo3lo2eqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqBNPSd747gJaiKrXiUswEaFI9Sh4t4Fc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "765389416408-1l5686ufq74akrptpo6p78guo3lo2eqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

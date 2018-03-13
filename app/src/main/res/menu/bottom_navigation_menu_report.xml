@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_check_in"
+        android:enabled="true"
+        android:icon="@drawable/checkout"
+        android:title="CHECK IN"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_check_out"
+        android:enabled="true"
+        android:icon="@drawable/checkout2"
+        android:title="CHECK OUT"
+        app:showAsAction="ifRoom" />
+</menu>

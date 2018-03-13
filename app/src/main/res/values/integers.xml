@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="geolocation_alarm_start">120000</integer>
+    <integer name="geolocation_schedule_start">6</integer><!--6 am-->
+    <integer name="geolocation_schedule_end">20</integer>
+    <integer name="app_version_db">1</integer>
+    <integer name="geolocation_time_update">100</integer>
+    <integer name="time_synch">86400000</integer>
+    <integer name="time_check_max">20000</integer>
+    <integer name="PRE_CHECK_OUT">1002</integer>
+    <integer name="menu_report_encuesta">7</integer><!--8 pm-->
+    <integer name="statusModuleReportDone">1000</integer>
+    <integer name="statusModuleReportNotDone">2000</integer>
+    <integer name="statusModuleReportWithOut">3000</integer>
+    <integer name="statusModuleReportIncomplete">4000</integer>
+    <integer name="statusModuleReportDoneBeforeVisit">6000</integer>
+    <integer name="statusModuleReportWithMoreVisit">7000</integer>
+    <integer name="statusModuleReportIncompleteForced">8000</integer>
+    <integer name="ENCUESTA">7</integer>
+    <integer name="CHECK_IN">1000</integer>
+    <integer name="geolocation_lapse_time_max">90000</integer>
+    <integer name="CHECK_OUT">1001</integer>
+    <integer name="idRolMercaderista">1</integer>
+    <integer name="idRolSupervisor">2</integer>
+    <integer name="type_check_in">1</integer>
+    <integer name="INCOMPLETE">-1</integer>
+    <integer name="EXHIBICIONES">6</integer>
+    <integer name="ALERT">9</integer>
+    <integer name="type_check_out">2</integer>
+    <integer name="SIZE_WIDTH_PHOTO">800</integer>
+    <integer name="SIZE_HEIGHT_PHOTO">600</integer>
+</resources>

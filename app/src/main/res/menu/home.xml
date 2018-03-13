@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_sync"
+        android:icon="@drawable/ic_sync_black_24dp"
+        android:title="@string/title_menu_home_sync"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_account"
+        android:icon="@drawable/ic_vpn_key_black_24dp"
+        android:title="@string/title_menu_home_account"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_help"
+        android:icon="@drawable/ayuda2"
+        android:title="@string/title_menu_home_help"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_more_vert_black_24dp"
+        android:title="@string/title_menu_home_setting"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_send_db"
+                android:icon="@drawable/ic_publish_black_24dp"
+                android:title="@string/title_menu_home_send_db"
+                app:showAsAction="always"/>
+            <item
+                android:id="@+id/action_change_pass"
+                android:icon="@drawable/ic_security_black_24dp"
+                android:title="@string/title_menu_home_change_password"
+                app:showAsAction="always"
+                />
+            <!--<item-->
+            <!--android:id="@+id/action_about"-->
+            <!--android:icon="@drawable/ic_info_outline_black_24dp"-->
+            <!--android:title="@string/title_menu_home_about"-->
+            <!--app:showAsAction="never"/>-->
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_margin="4dp"
+    android:padding="8dp"
+    android:id="@+id/lyt_row_exhibition"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="16sp"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:textColor="@color/color_text"
+        android:id="@+id/txt_name"/>
+    <TextView
+        android:textSize="16sp"
+        android:gravity="center"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:textColor="@color/color_text"
+        android:id="@+id/txt_description"/>
+    <TextView
+
+        android:textSize="16sp"
+        android:gravity="center"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:textColor="@color/color_text"
+        android:id="@+id/txt_location"/>
+
+
+    <RadioButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:text="Si"
+        android:textColor="@color/color_text"
+        android:id="@+id/rdb_yescamara_type"/>
+    <RadioButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textColor="@color/color_text"
+        android:layout_weight="1.5"
+        android:text="No"
+        android:id="@+id/rdb_nocamara_type"/>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:src="@drawable/ic_action_camera"
+        android:id="@+id/img_camera"/>
+    <TextView
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="@color/color_text"
+        android:id="@+id/txt_num_photos"/>
+
+    <ImageView
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/img_delete_exhibition"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_delete" />
+
+</LinearLayout>

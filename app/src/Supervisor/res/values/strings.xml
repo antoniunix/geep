@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NrocSup</string>
+    <string name="full_name_app">NrocProm.apk</string>
+    <string name="app_download_apk">https://s3-us-west-1.amazonaws.com/gshpapps/Nestle/NROC/app-Supervisor-release.apk</string>
+    <string name="pakageToUninstall">net.gshp.nesmovilnrocsup</string>
+    <string name="app_path_apk">sdcard/Nestle/NrocProm.apk</string>
+
+</resources>

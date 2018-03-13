@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundGeneral">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </include>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rly_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/txt_name_user"
+            style="@style/style_Text_Name" />
+
+        <TextView
+            android:id="@+id/txt_code_user"
+            style="@style/style_Text_Code"
+            android:layout_below="@+id/txt_name_user" />
+
+    </RelativeLayout>
+
+    <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@+id/rly_person">
+
+        <RelativeLayout
+            android:id="@+id/rlyMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtLabelResume"
+                style="@style/style_label"
+                android:layout_marginTop="8dp"
+                android:text="RESUMEN" />
+
+            <!--TABLE WITH CARDVIEW-->
+            <TableLayout
+                android:id="@+id/tbl_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtLabelResume">
+
+                <TableRow>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv_resume"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:layout_weight="2"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtNumWeek"
+                                style="@style/style_txt_header_cardview"
+                                android:drawableRight="@drawable/p_azul"
+                                android:textColor="@color/color_txt_head_cardview" />
+
+                            <TextView
+                                android:id="@+id/txtPorcentWeek"
+                                style="@style/style_txt_info_cardview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="24sp" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv_efectivity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_weight="3"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txt_head_efectividad"
+                                style="@style/style_txt_header_cardview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/m_verde"
+                                android:paddingRight="@dimen/activity_horizontal_margin"
+                                android:text="EFECTIVIDAD"
+                                android:textColor="@color/color_txt_green" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:background="@color/colorDivider" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txtNumWeekEfectividad"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_weight="1"
+                                    android:textColor="@color/color_txt_second"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/txt_head_acumulado"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="ACUMULADO ANUAL"
+                                    android:textColor="@color/color_txt_second"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txtAcumulatedWeekEfectividad"
+                                    style="@style/style_txt_info_cardview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/txtAcumulatedAnnualEfectividad"
+                                    style="@style/style_txt_info_cardview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                </TableRow>
+
+                <TableRow>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv_acumulado"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_weight="2"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txt_head_acumulado1"
+                                style="@style/style_txt_header_cardview"
+                                android:drawableRight="@drawable/p_azul"
+                                android:text="@string/photo_success"
+                                android:textColor="@color/color_txt_head_cardview" />
+
+                            <TextView
+                                android:id="@+id/txtAcumulatedAnnual"
+                                style="@style/style_txt_info_cardview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv_cost"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_weight="3"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_cost"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:id="@+id/txt_head_costo"
+                                style="@style/style_txt_header_cardview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/p_blanco"
+                                android:text="@string/costo_inasistencia"
+                                android:textColor="@android:color/white" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@android:color/white" />
+
+                            <TextView
+                                android:id="@+id/txtCosto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/txtLabelStore"
+                style="@style/style_label"
+                android:layout_below="@id/tbl_main"
+                android:text="TIENDAS" />
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_dialog_shape"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/title_text_toolbar_style_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="FIN DE VISITA" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/txtLabelCheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_top"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="Hora de Check In: " />
+
+    <TextView
+        android:id="@+id/txtCheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_top"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/txtLabelCheckIn" />
+
+    <TextView
+        android:id="@+id/txtLabelCheckOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtLabelCheckIn"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="Hora de Check Out: " />
+
+    <TextView
+        android:id="@+id/txtCheckOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtCheckIn"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/txtLabelCheckIn" />
+
+    <TextView
+        android:id="@+id/txtLabelTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtLabelCheckOut"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="Tiempo transcurrido: " />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtCheckOut"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/txtLabelTime" />
+
+    <Button
+        android:id="@+id/btn_next"
+        style="@style/style_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTime"
+        android:text="@string/app_btn_continue" />
+
+</RelativeLayout>

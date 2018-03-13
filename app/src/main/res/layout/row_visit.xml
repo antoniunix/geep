@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lny_main"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_withe">
+
+    <View
+        android:id="@+id/viewStatus"
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/cardview_dark_background"
+        android:minHeight="90dp" />
+
+    <TextView
+        android:id="@+id/txtNamePdv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_toRightOf="@id/viewStatus"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtCodePdv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtNamePdv"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/viewStatus"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtTypePdv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/txtNamePdv"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/txtStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCodePdv"
+        android:layout_toRightOf="@id/viewStatus"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtCreated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtStatusText"
+        android:layout_toRightOf="@id/viewStatus"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtLabelInit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCreated"
+        android:layout_toRightOf="@id/viewStatus"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="INICIO"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtInit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCreated"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/txtLabelInit"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtLabelFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCreated"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/txtInit"
+        android:text="FIN"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCreated"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/txtLabelFinish"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imgTrash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtStatusText"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:src="@drawable/ic_delete"
+        android:tint="@color/color_black" />
+
+
+</RelativeLayout>
