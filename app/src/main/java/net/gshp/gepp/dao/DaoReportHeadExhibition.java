@@ -197,6 +197,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
                 "c_type_catalog_exhibition.id=7 and measurement_item_exhibition.parent="+group+"\n" +
                 "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
+
         List<DtoTypeExhibition> obj = new ArrayList<>();
         DtoTypeExhibition catalogo;
         if (cursor.moveToFirst()) {
