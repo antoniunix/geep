@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide();
+
         EventBus.getDefault().register(this);
         init();
 
