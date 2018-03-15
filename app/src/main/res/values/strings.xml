@@ -341,4 +341,6 @@ Página 6 de 6</string>
     <string name="hours_ejecution">HRS EJECUCIÓN</string>
     <string name="measurement">SEGMENTACIÓN</string>
     <string name="SS">SS</string>
+    <string name="water">AGUA</string>
+    <string name="gatorade">GATORADE</string>
 </resources>

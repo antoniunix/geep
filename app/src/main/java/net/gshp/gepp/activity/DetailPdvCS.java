@@ -18,7 +18,7 @@ import net.gshp.gepp.dto.DtoPdvCS;
 public class DetailPdvCS extends AppCompatActivity {
     private DtoPdv dtoPdv;
     private DtoBundle dtoBundle;
-    private TextView txtOportunity, txtphotoSuccess, txthrsEjecution, txtColaSS, txtColaMS, txtColaSSFlavor, txtColaMSFlavor;
+    private TextView txtOportunity, txtphotoSuccess, txthrsEjecution, txtColaSS, txtColaMS, txtColaSSFlavor, txtColaMSFlavor, txtAgua, txtGayto, txtLipton, txtJumex;
     private DtoPdvCS dtoPdvCS;
 
     @Override
@@ -28,16 +28,20 @@ public class DetailPdvCS extends AppCompatActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getString(R.string.app_bundle_name));
-        dtoPdvCS= new DaoPdvCs().selectAll(dtoBundle.getIdPDV());
-        txtOportunity=(TextView)findViewById(R.id.txtOportunity);
-        txtphotoSuccess=(TextView)findViewById(R.id.txtphotoSuccess);
-        txthrsEjecution=(TextView)findViewById(R.id.txthrsEjecution);
-        txtColaSS=(TextView)findViewById(R.id.txtColaSS);
-        txtColaMS=(TextView)findViewById(R.id.txtColaMS);
-        txtColaSSFlavor=(TextView)findViewById(R.id.txtColaSSFlavor);
-        txtColaMSFlavor=(TextView)findViewById(R.id.txtColaMSFlavor);
+        dtoPdvCS = new DaoPdvCs().selectAll(dtoBundle.getIdPDV());
+        txtOportunity = (TextView) findViewById(R.id.txtOportunity);
+        txtphotoSuccess = (TextView) findViewById(R.id.txtphotoSuccess);
+        txthrsEjecution = (TextView) findViewById(R.id.txthrsEjecution);
+        txtColaSS = (TextView) findViewById(R.id.txtColaSS);
+        txtColaMS = (TextView) findViewById(R.id.txtColaMS);
+        txtColaSSFlavor = (TextView) findViewById(R.id.txtColaSSFlavor);
+        txtColaMSFlavor = (TextView) findViewById(R.id.txtColaMSFlavor);
+        txtAgua=(TextView)findViewById(R.id.txtAgua);
+        txtGayto=(TextView)findViewById(R.id.txtGatorade);
+        txtLipton=(TextView)findViewById(R.id.txtLipton);
+        txtJumex=(TextView)findViewById(R.id.txtJumex);
 
         txtOportunity.setText(dtoPdvCS.getOportunity());
         txtphotoSuccess.setText(dtoPdvCS.getSuccess_photo());
@@ -46,6 +50,10 @@ public class DetailPdvCS extends AppCompatActivity {
         txtColaMS.setText(dtoPdvCS.getColas_ms());
         txtColaSSFlavor.setText(dtoPdvCS.getSabores_ss());
         txtColaMSFlavor.setText(dtoPdvCS.getSabores_ms());
+        txtAgua.setText(dtoPdvCS.getAgua());
+        txtJumex.setText(dtoPdvCS.getJumex());
+        txtLipton.setText(dtoPdvCS.getLipton());
+        txtGayto.setText(dtoPdvCS.getGatorade());
 
 
     }
