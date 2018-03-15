@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <include
         android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/color_white"></android.support.v7.widget.Toolbar>
+        android:layout_height="wrap_content">
+
+    </include>
 
     <View
         android:id="@+id/vLine1"
@@ -26,7 +27,7 @@
         android:background="@color/colorBackgroundBarUnderHeader"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="MENSAJES"
-        android:textSize="32dp" />
+        android:textSize="@dimen/textSizeVeryBig" />
 
     <View
         android:id="@+id/vLine2"

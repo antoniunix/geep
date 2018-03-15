@@ -78,7 +78,6 @@
         <activity
             android:name=".activity.Home"
             android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.DetailPdv"
@@ -117,19 +116,16 @@
             android:name=".activity.Message"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.MessageView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.ListDownloadable"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.CheckOut"

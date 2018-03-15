@@ -25,7 +25,7 @@ import net.gshp.gepp.util.Config;
 
 public class MessageView extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView txt_title;
+    private TextView txt_title,txt_date;
     private WebView txt_message;
     private Button btn_continue;
     private int idMessage;
@@ -36,9 +36,7 @@ public class MessageView extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avisos_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //toolbar.setNavigationIcon(R.drawable.logo);
-        toolbar.setTitle("");
+        getSupportActionBar().hide();
         init();
     }
 
@@ -51,6 +49,7 @@ public class MessageView extends AppCompatActivity implements View.OnClickListen
         idMessage = getIntent().getIntExtra(ContextApp.context.getResources().getString(R.string.app_bundle_name), 0);
         model = new ModelMessageView();
         txt_message = (WebView) findViewById(R.id.txt_message);
+        txt_date = (TextView) findViewById(R.id.txt_date);
         txt_title = (TextView) findViewById(R.id.txt_title);
         btn_continue = (Button) findViewById(R.id.btn_continue);
         dtoMessage = model.getItem(idMessage);
@@ -73,6 +72,7 @@ public class MessageView extends AppCompatActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         txt_message.loadData(dtoMessage.getContent(), "text/html; charset=utf-8", Utf8Charset.NAME);
+        txt_date.setText(Config.formatDate());
     }
 }
 

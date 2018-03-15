@@ -82,7 +82,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         init();
     }
 

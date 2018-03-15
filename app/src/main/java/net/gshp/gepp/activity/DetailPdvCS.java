@@ -25,6 +25,7 @@ public class DetailPdvCS extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_cs);
+        getSupportActionBar().hide();
         init();
     }
 
@@ -54,7 +55,5 @@ public class DetailPdvCS extends AppCompatActivity {
         txtJumex.setText(dtoPdvCS.getJumex());
         txtLipton.setText(dtoPdvCS.getLipton());
         txtGayto.setText(dtoPdvCS.getGatorade());
-
-
     }
 }

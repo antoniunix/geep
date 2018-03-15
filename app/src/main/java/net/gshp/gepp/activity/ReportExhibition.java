@@ -69,7 +69,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
         int id = v.getId();
 
         switch (id) {
-            case R.id.img_camera:
+            case R.id.txt_num_photos:
                 DtoReportExhibitionMantained dto = (DtoReportExhibitionMantained) v.getTag();
                 path = getString(R.string.app_path_photo) + System.currentTimeMillis() + ".jpg";
                 File file = new File(path);

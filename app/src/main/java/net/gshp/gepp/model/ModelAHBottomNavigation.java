@@ -52,7 +52,7 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
         if (activity instanceof Home) {
             ahBottomNavigation.setCurrentItem(0);
         } else if (activity instanceof Visit) {
-            ahBottomNavigation.setCurrentItem(2);
+            ahBottomNavigation.setCurrentItem(3);
         } else if (activity instanceof VisitByDay) {
             ahBottomNavigation.setCurrentItem(1);
         }
@@ -106,14 +106,13 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
         } else if (activity instanceof Visit) {
             switch (position) {
                 case 0:
-                    activity.startActivity(new Intent(activity.getApplicationContext(), Home.class));
                     activity.finish();
                     break;
                 case 1:
                     activity.startActivity(new Intent(activity.getApplicationContext(), VisitByDay.class));
                     activity.finish();
                     break;
-                case 3:
+                case 2:
                     DialogMessageDocuments dialogMessageDocuments = new DialogMessageDocuments();
                     FragmentManager fragmentManager = ((Visit) activity).getSupportFragmentManager();
                     dialogMessageDocuments.show(fragmentManager, "message");

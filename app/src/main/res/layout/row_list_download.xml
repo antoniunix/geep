@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lyt_row"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lyt_row"
     android:minHeight="100dp"
     android:orientation="horizontal">
 
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center|left"
             android:textColor="@color/color_text"
-            android:textSize="16sp"
+            android:textSize="@dimen/textSizeBig"
             android:textStyle="bold" />
 
         <TextView
@@ -42,8 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|left"
-
-            android:textSize="16sp" />
+            android:textColor="@color/color_text"
+            android:textSize="@dimen/textSizeNormal" />
 
 
     </LinearLayout>

@@ -8,11 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import net.gshp.gepp.R;
 import net.gshp.gepp.dto.DtoMessage;
 import net.gshp.gepp.model.ModelMessage;
 import net.gshp.gepp.util.ChangeFontStyle;
+import net.gshp.gepp.util.Config;
 
 /**
  * Created by leo on 13/03/18.
@@ -22,15 +24,14 @@ public class Message extends AppCompatActivity implements AdapterView.OnItemClic
 
     private ListView lst_message;
     private ModelMessage modelMessage;
+    private TextView txt_date;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //toolbar.setNavigationIcon(R.drawable.logo);
-        toolbar.setTitle("");
+        getSupportActionBar().hide();
         init();
         ChangeFontStyle.changeFont(findViewById(R.id.txtLabel));
     }
@@ -43,6 +44,7 @@ public class Message extends AppCompatActivity implements AdapterView.OnItemClic
     private void init() {
         lst_message = (ListView) findViewById(R.id.lst_message);
         modelMessage = new ModelMessage();
+        txt_date = (TextView) findViewById(R.id.txt_date);
 
         lst_message.setAdapter(modelMessage.getAdapter());
         lst_message.setOnItemClickListener(this);
@@ -52,6 +54,7 @@ public class Message extends AppCompatActivity implements AdapterView.OnItemClic
     @Override
     protected void onResume() {
         lst_message.setAdapter(modelMessage.getAdapter());
+        txt_date.setText(Config.formatDate());
 
         super.onResume();
     }
