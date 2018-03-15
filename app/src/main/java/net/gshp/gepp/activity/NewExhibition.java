@@ -3,8 +3,10 @@ package net.gshp.gepp.activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.gshp.api.utils.Crypto;
 import com.gshp.api.utils.ResizePicture;
 
+import net.gshp.gepp.BuildConfig;
 import net.gshp.gepp.R;
 import net.gshp.gepp.dao.DaoPdv;
 import net.gshp.gepp.dto.DtoBundle;
@@ -23,7 +26,7 @@ import net.gshp.gepp.dto.DtoReportHeadExhibition;
 import net.gshp.gepp.model.ModelNewExhibition;
 import net.gshp.gepp.util.Config;
 
-import org.greenrobot.eventbus.EventBus;
+import de.greenrobot.event.EventBus;
 
 import java.io.File;
 import java.util.Random;
@@ -62,6 +65,8 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
         spn_subfamily = (Spinner) findViewById(R.id.spn_subfamily);
         spn_type = (Spinner) findViewById(R.id.spn_type);
         spn_location = (Spinner) findViewById(R.id.spn_location);
+        spn_group = (Spinner) findViewById(R.id.spn_group);
+        spn_departament = (Spinner) findViewById(R.id.spn_departament);
         modelNewExhibition = new ModelNewExhibition(dtoBundle);
 
         spn_manufacturer.setOnItemSelectedListener(this);
@@ -70,10 +75,12 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
         spn_subfamily.setOnItemSelectedListener(this);
         spn_type.setOnItemSelectedListener(this);
         spn_location.setOnItemSelectedListener(this);
+        spn_group.setOnItemSelectedListener(this);
+        spn_departament.setOnItemSelectedListener(this);
 
         spn_manufacturer.setAdapter(modelNewExhibition.getItemAdapterManufacturer());
         spn_type.setAdapter(modelNewExhibition.getItemAdapterType());
-        spn_location.setAdapter(modelNewExhibition.getItemAdapterLocation());
+        spn_group.setAdapter(modelNewExhibition.getItemAdapterGroup());
 
 
     }
@@ -82,13 +89,26 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
     public void onClickPhoto(View v) {
         path = getResources().getString(R.string.app_path_photo) + System.currentTimeMillis() + ".jpg";
         File file = new File(path);
-        Uri outputFileUri = Uri.fromFile(file);
-        Intent intent = new Intent(
-                MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-        intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION,
-                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        startActivityForResult(intent, 0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Uri outputFileUri= FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", file);
+            Intent intent = new Intent(
+                    MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+            intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION,
+                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            startActivityForResult(intent, 0);
+
+        }else{
+            Uri outputFileUri = Uri.fromFile(file);
+            Intent intent = new Intent(
+                    MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+            intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION,
+                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            startActivityForResult(intent, 0);
+        }
+
+
     }
 
     public void onClicksave(View v) {
@@ -165,11 +185,11 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
             case R.id.spn_family:
                 spn_subfamily.setAdapter(modelNewExhibition.getItemAdapterSubFamily(modelNewExhibition.getItemPositionFamily(position).getIdItemRelation()));
                 break;
-            case R.id.spn_location:
-                spn_category.setAdapter(modelNewExhibition.getItemAdapterGroup(modelNewExhibition.getItemPositionGroup(position).getIdItemRelation()));
-                break;
             case R.id.spn_group:
-                spn_group.setAdapter(modelNewExhibition.getItemAdapterDepartament(modelNewExhibition.getItemPositionDepartament(position).getIdItemRelation()));
+                spn_location.setAdapter(modelNewExhibition.getItemAdapterLocation(modelNewExhibition.getItemPositionGroup(position).getIdItemRelation()));
+                break;
+            case R.id.spn_location:
+                 spn_departament.setAdapter(modelNewExhibition.getItemAdapterDepartament(modelNewExhibition.getItemPositionLocation(position).getIdItemRelation()));
                 break;
         }
 

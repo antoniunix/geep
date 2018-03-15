@@ -71,20 +71,22 @@ public class ModelNewExhibition {
         return new ArrayAdapter<>(ContextApp.context, R.layout.spinner_simple_list, lstStringCategory);
     }
 
-    public SpinnerAdapter getItemAdapterGroup(int idLocation) {
-        lstDtoExhibitionGroup = daoReportHeadExhibition.SelectGroup(dtoPdv, idLocation);
-        for (DtoTypeExhibition dto : lstDtoExhibitionCategory) {
+    public SpinnerAdapter getItemAdapterGroup() {
+        lstDtoExhibitionGroup = daoReportHeadExhibition.SelectGroup(dtoPdv);
+        lstStringGroup = new ArrayList<>();
+        for (DtoTypeExhibition dto : lstDtoExhibitionGroup) {
             lstStringGroup.add(dto.getValue());
         }
         return new ArrayAdapter<>(ContextApp.context, R.layout.spinner_simple_list, lstStringGroup);
     }
+
     public SpinnerAdapter getItemAdapterDepartament(int idFamily) {
         lstDtoExhibitionDepartament = daoReportHeadExhibition.SelectDepartament(dtoPdv, idFamily);
-        lstStringSubFamily = new ArrayList<>();
-        for (DtoTypeExhibition dto : lstDtoExhibitionSubFamily) {
-            lstStringSubFamily.add(dto.getValue());
+        lstStrinfDepartament = new ArrayList<>();
+        for (DtoTypeExhibition dto : lstDtoExhibitionDepartament) {
+            lstStrinfDepartament.add(dto.getValue());
         }
-        return new ArrayAdapter<>(ContextApp.context, R.layout.spinner_simple_list, lstStringSubFamily);
+        return new ArrayAdapter<>(ContextApp.context, R.layout.spinner_simple_list, lstStrinfDepartament);
     }
 
     public SpinnerAdapter getItemAdapterFamily(int idCategory) {
@@ -115,8 +117,8 @@ public class ModelNewExhibition {
         return new ArrayAdapter<>(ContextApp.context, R.layout.spinner_simple_list, lstStringType);
     }
 
-    public SpinnerAdapter getItemAdapterLocation() {
-        lstDtoExhibitionLocation = daoReportHeadExhibition.SelectLocation(dtoPdv);
+    public SpinnerAdapter getItemAdapterLocation(int idGroup) {
+        lstDtoExhibitionLocation = daoReportHeadExhibition.SelectLocation(dtoPdv, idGroup);
         lstStringLocation = new ArrayList<>();
         for (DtoTypeExhibition dto : lstDtoExhibitionLocation) {
             lstStringLocation.add(dto.getValue());

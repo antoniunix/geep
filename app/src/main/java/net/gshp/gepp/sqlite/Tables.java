@@ -261,13 +261,13 @@ public class Tables {
     /**
      * Measurement of module menu report
      */
-    public static final String TableMeasurementModuleHead = "CREATE TABLE measurement_module_head(" +
+    public final String TableMeasurementModuleHead = "CREATE TABLE measurement_module_head(" +
             "id INTEGER," +
             "startDate TEXT," +
             "endDate TEXT," +
             "description TEXT," +
             "last_update TEXT)";
-    public static final String TableMeasurementModule = "CREATE TABLE measurement_module(" +
+    public final String TableMeasurementModule = "CREATE TABLE measurement_module(" +
             "id INTEGER," +
             "id_measurement INTEGER," +
             "id_item INTEGER," +
@@ -275,32 +275,32 @@ public class Tables {
             "required INTEGER," +
             "_orden INTEGER," +
             "last_update TEXT)";
-    public static final String TableMeasurementModuleClient = "CREATE TABLE measurement_module_client(" +
+    public final String TableMeasurementModuleClient = "CREATE TABLE measurement_module_client(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
-    public static final String TableMeasurementModuleCanal = "CREATE TABLE measurement_module_canal(" +
+    public final String TableMeasurementModuleCanal = "CREATE TABLE measurement_module_canal(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
-    public static final String TableMeasurementModuleFormat = "CREATE TABLE measurement_module_format(" +
+    public final String TableMeasurementModuleFormat = "CREATE TABLE measurement_module_format(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
-    public static final String TableMeasurementModulePdv = "CREATE TABLE measurement_module_pdv(" +
+    public final String TableMeasurementModulePdv = "CREATE TABLE measurement_module_pdv(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
-    public static final String TableMeasurementModuleRtm = "CREATE TABLE measurement_module_rtm(" +
+    public final String TableMeasurementModuleRtm = "CREATE TABLE measurement_module_rtm(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
-    public static final String TableMeasurementModuleRegion = "CREATE TABLE measurement_module_region(" +
+    public final String TableMeasurementModuleRegion = "CREATE TABLE measurement_module_region(" +
             "id_item_relation INTEGER NOT NULL," +
             "id_measurement INTEGER NOT NULL," +
             "last_update TEXT)";
 
-    public static final String TableScannAlert = "CREATE TABLE scann_alert("
+    public final String TableScannAlert = "CREATE TABLE scann_alert("
             + "id INTEGER," + "id_sku INTEGER," + "id_pdv INTEGER,"
             + "id_tp INTEGER," + "key TEXT, sku_description TEXT," +
             "promedioVtaSemanal TEXT," +
@@ -311,7 +311,7 @@ public class Tables {
             "diasInv TEXT)";
 
 
-    public static final String TableReportScannAlert = "CREATE TABLE report_scan_alert("
+    public final String TableReportScannAlert = "CREATE TABLE report_scan_alert("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
             + "id_report INTEGER,"
             + "id_sku INTEGER,"
@@ -322,12 +322,12 @@ public class Tables {
             + "send TEXT,"
             + "id_tp INTEGER)";
 
-    public static final String TableStatusScannAlert = "CREATE TABLE  c_status_scann_alert ("
+    public final String TableStatusScannAlert = "CREATE TABLE  c_status_scann_alert ("
             + "id INTEGER," + "value TEXT,color TEXT,id_problem INTEGER)";
 
-    public static final String TableProbleScannAlert = "CREATE TABLE  c_problem_scann_alert ("
+    public final String TableProbleScannAlert = "CREATE TABLE  c_problem_scann_alert ("
             + "id INTEGER," + "value TEXT)";
-    public static final String Table_CCategory = "CREATE TABLE c_category("
+    public final String Table_CCategory = "CREATE TABLE c_category("
             + "id INTEGER NOT NULL," + "value TEXT NOT NULL)";
 
     public final String TableMeasurementHeadExhibition = "CREATE TABLE measurement_head_exhibition(" +
@@ -458,6 +458,23 @@ public class Tables {
             "path TEXT," +
             "hash TEXT," +
             "send INTEGER)";
+
+    public final String TablePdvCS = "CREATE TABLE pdvCs(" +
+            "pdv_id INTEGER," +
+            "oportunity TEXT," +
+            "success_photo TEXT," +
+            "cluster_total TEXT," +
+            "execution_time," +
+            "colas_ms TEXT," +
+            "colas_ss TEXT," +
+            "sabores_ms TEXT," +
+            "sabores_ss TEXT," +
+            "agua TEXT," +
+            "gatorade TEXT," +
+            "lipton TEXT," +
+            "starbucks TEXT," +
+            "jumex TEXT," +
+            "mixers TEXT)";
 
 
 }

@@ -62,7 +62,7 @@ public class ModelSync {
     private boolean flag = false;
     private int numReportGuardados = 0;
 
-    private final int NUMCATALOGOS = 39; //se usa para saber cuando ya se descargaron todos los catalogos y enviar mensaje de terminado
+    private final int NUMCATALOGOS = 40; //se usa para saber cuando ya se descargaron todos los catalogos y enviar mensaje de terminado
     private int numReportDownload = 0;
     private NetworkConfig networkConfig;
 
@@ -165,6 +165,9 @@ public class ModelSync {
                 networkConfig.GET("multireport/catalog/mnx_format", "mnx_format");
                 networkConfig.GET("multireport/catalog/mnx_pos", "mnx_pdv");
                 networkConfig.GET("multireport/catalog/mnx_region", "mnx_region");
+
+                //score
+                networkConfig.GET("multireport/catalog/pos_cs","pos_cs");
 
             }
 

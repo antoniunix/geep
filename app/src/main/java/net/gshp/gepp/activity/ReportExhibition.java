@@ -25,6 +25,8 @@ import net.gshp.gepp.listener.OnDissmisDialogListener;
 import net.gshp.gepp.model.ModelExhibitions;
 import net.gshp.gepp.util.Config;
 
+import de.greenrobot.event.EventBus;
+
 import java.io.File;
 
 /**
@@ -50,6 +52,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
 
     private void init() {
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getResources().getString(R.string.app_bundle_name));
+        EventBus.getDefault().register(this);
         btn_add_exhibition = (Button) findViewById(R.id.btn_add_exhibition);
         btn_save_exhibition = (Button) findViewById(R.id.btn_save_exhibition);
         btn_add_exhibition.setOnClickListener(this);
@@ -121,8 +124,9 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
         adapterExhibicion.notifyDataSetChanged();
     }
 
+
     public void onEvent(DtoReportExhibitionMantained dtoReportExhibitionMantained) {
-        Log.e("hash", " event");
+        Log.e("hash", " event "+dtoReportExhibitionMantained.toString());
         adapterExhibicion.add(dtoReportExhibitionMantained);
         adapterExhibicion.notifyDataSetChanged();
     }

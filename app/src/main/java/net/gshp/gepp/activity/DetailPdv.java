@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.vision.text.Line;
 
 import net.gshp.gepp.R;
 import net.gshp.gepp.contextApp.ContextApp;
@@ -35,6 +38,7 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
     private MapView mapView;
     private GoogleMap map;
     private ModelMenuReport modelMenuReport;
+    private LinearLayout lyt_scorecard_info;
 
 
     @Override
@@ -59,18 +63,27 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
         btninit.setOnClickListener(this);
         mapView = (MapView) findViewById(R.id.map);
         scroll = (ScrollView) findViewById(R.id.scroll);
+        lyt_scorecard_info = (LinearLayout) findViewById(R.id.lyt_scorecard_info);
+        lyt_scorecard_info.setOnClickListener(this);
         setUpMapIfNeeded();
     }
 
     @Override
     public void onClick(View view) {
-        modelMenuReport.addReport();
-        startService(new Intent(ContextApp.context, ServiceCheck.class).
-                putExtra(getString(R.string.app_bundle_name), dtoBundle).
-                putExtra("typeCheck", getResources().getInteger(R.integer.type_check_in)));
-        modelMenuReport.setDtoBundle(dtoBundle);
-        startActivity(new Intent(this, MenuReport.class).putExtra(getString(R.string.app_bundle_name), dtoBundle));
-        finish();
+        if (view.getId() == R.id.btninit) {
+            modelMenuReport.addReport();
+            startService(new Intent(ContextApp.context, ServiceCheck.class).
+                    putExtra(getString(R.string.app_bundle_name), dtoBundle).
+                    putExtra("typeCheck", getResources().getInteger(R.integer.type_check_in)));
+            modelMenuReport.setDtoBundle(dtoBundle);
+            startActivity(new Intent(this, MenuReport.class).putExtra(getString(R.string.app_bundle_name), dtoBundle));
+            finish();
+        } else if(view.getId()==R.id.lyt_scorecard_info){
+            Log.e("else","l");
+            startActivityForResult(new Intent(this, DetailPdvCS.class).putExtra(getString(R.string.app_bundle_name), dtoBundle), 1);
+            finish();
+        }
+
     }
 
     @Override

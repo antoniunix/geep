@@ -87,6 +87,8 @@ public class AppDb extends SQLiteOpenHelper {
         db.execSQL(tables.TableReportExhibitionDetail);
         //Subordinado
         db.execSQL(tables.Table_Subordinado);
+        //Scorecard
+        db.execSQL(tables.TablePdvCS);
 
     }
 

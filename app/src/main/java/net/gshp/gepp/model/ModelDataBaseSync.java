@@ -32,6 +32,7 @@ import net.gshp.gepp.dao.DaoMeasurementItemExhibition;
 import net.gshp.gepp.dao.DaoMeasurementModule;
 import net.gshp.gepp.dao.DaoMessage;
 import net.gshp.gepp.dao.DaoPdv;
+import net.gshp.gepp.dao.DaoPdvCs;
 import net.gshp.gepp.dao.DaoRtm;
 import net.gshp.gepp.dao.DaoScannAlert;
 import net.gshp.gepp.dao.DaoTypeExhibition;
@@ -53,6 +54,7 @@ import net.gshp.gepp.dto.DtoMeasurementItemExhibition;
 import net.gshp.gepp.dto.DtoMeasurementModule;
 import net.gshp.gepp.dto.DtoMessage;
 import net.gshp.gepp.dto.DtoPdv;
+import net.gshp.gepp.dto.DtoPdvCS;
 import net.gshp.gepp.dto.DtoRtm;
 import net.gshp.gepp.dto.DtoScannAlert;
 import net.gshp.gepp.dto.DtoTypeExhibition;
@@ -491,6 +493,15 @@ public class ModelDataBaseSync {
                         List<DtoMeasurementFilter> lst;
                         lst = new Gson().fromJson(nt.getResponse(), typeObjectGson);
                         DaoMeasurementFilter dao = new DaoMeasurementFilter("measurement_exhibition_region");
+                        dao.delete();
+                        dao.Insert(lst);
+                    } else if (nt.getTag().equals("pos_cs")) {
+                        Log.d("SYNC", "pos_cs" + nt.getResponse());
+                        typeObjectGson = new TypeToken<List<DtoPdvCS>>() {
+                        }.getType();
+                        List<DtoPdvCS> lst;
+                        lst = new Gson().fromJson(nt.getResponse(), typeObjectGson);
+                        DaoPdvCs dao = new DaoPdvCs();
                         dao.delete();
                         dao.Insert(lst);
                     }

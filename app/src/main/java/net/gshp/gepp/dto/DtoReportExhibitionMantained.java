@@ -341,4 +341,6 @@ public class DtoReportExhibitionMantained implements Parcelable {
             return new DtoReportExhibitionMantained[size];
         }
     };
+
+
 }

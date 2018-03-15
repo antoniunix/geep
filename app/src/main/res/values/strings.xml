@@ -337,4 +337,8 @@ Página 6 de 6</string>
     <string name="title_activity_check_out">Check Out</string>
     <string name="title_activity_new_exhibition">NUEVA EXHIBICIÓN</string>
     <string name="delete">ELIMINAR</string>
+    <string name="oportunity">OPORTUNIDAD</string>
+    <string name="hours_ejecution">HRS EJECUCIÓN</string>
+    <string name="measurement">SEGMENTACIÓN</string>
+    <string name="SS">SS</string>
 </resources>

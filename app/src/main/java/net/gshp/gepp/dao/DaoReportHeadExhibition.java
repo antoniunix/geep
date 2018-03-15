@@ -134,9 +134,9 @@ public class DaoReportHeadExhibition extends DAO {
         return obj;
     }
 
-    public List<DtoTypeExhibition> SelectGroup(DtoPdv dtoPdv,int idLocation) {
+    public List<DtoTypeExhibition> SelectGroup(DtoPdv dtoPdv) {
         db = helper.getWritableDatabase();
-        cursor = db.rawQuery("SELECT\n" +
+        String qry = "SELECT\n" +
                 "measurement_item_exhibition.id_item_relation,\n" +
                 "measurement_item_exhibition.value\n" +
                 "FROM\n" +
@@ -155,8 +155,10 @@ public class DaoReportHeadExhibition extends DAO {
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
-                "c_type_catalog_exhibition.id=6 and measurement_item_exhibition.parent="+idLocation+"\n" +
-                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
+                "c_type_catalog_exhibition.id=6 \n" +
+                "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC";
+        cursor = db.rawQuery(qry, null);
+        Log.e("qry", "group\n"+qry);
         List<DtoTypeExhibition> obj = new ArrayList<>();
         DtoTypeExhibition catalogo;
         if (cursor.moveToFirst()) {
@@ -335,7 +337,7 @@ public class DaoReportHeadExhibition extends DAO {
         return obj;
     }
 
-    public List<DtoTypeExhibition> SelectLocation(DtoPdv dtoPdv) {
+    public List<DtoTypeExhibition> SelectLocation(DtoPdv dtoPdv, int idGroup) {
         db = helper.getWritableDatabase();
         cursor = db.rawQuery("SELECT\n" +
                 "measurement_item_exhibition.id_item_relation,\n" +
@@ -356,7 +358,7 @@ public class DaoReportHeadExhibition extends DAO {
                 "(measurement_exhibition_pdv.id_item_relation="+dtoPdv.getId()+" OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_rtm.id_item_relation="+dtoPdv.getIdRtm()+" OR measurement_exhibition_rtm.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_region.id_item_relation="+dtoPdv.getIdRegion()+" OR measurement_exhibition_region.id_item_relation ISNULL) AND\n" +
-                "c_type_catalog_exhibition.id=5 \n" +
+                "c_type_catalog_exhibition.id=5 and measurement_item_exhibition.parent="+idGroup+"\n" +
                 "ORDER BY measurement_item_exhibition.\"_order\",measurement_item_exhibition.weight ASC", null);
         List<DtoTypeExhibition> obj = new ArrayList<>();
         DtoTypeExhibition catalogo;
