@@ -59,7 +59,6 @@ public class DialogStatusScannAlert extends DialogFragment implements
     public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                             long arg3) {
         dialogStatusScann.onDismissDialog(this.position, modelDialogStatusScannAlert.getItem(position).getId());
-        Log.e("leo","id "+ modelDialogStatusScannAlert.getItem(position).getId());
         getDialog().dismiss();
     }
 

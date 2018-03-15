@@ -110,11 +110,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/SS" />
 
                     <TextView
+                        style="@style/style_detail"
                         android:id="@+id/txtColaSS"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -136,11 +138,14 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:gravity="center"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/SS" />
 
                     <TextView
+                        style="@style/style_detail"
                         android:id="@+id/txtColaMS"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -182,11 +187,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/SS" />
 
                     <TextView
+                        style="@style/style_detail"
                         android:id="@+id/txtColaSSFlavor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -207,11 +214,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/SS" />
 
                     <TextView
+                        style="@style/style_detail"
                         android:id="@+id/txtColaMSFlavor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -223,5 +232,179 @@
 
     </android.support.v7.widget.CardView>
 
+    <LinearLayout
+        android:id="@+id/lytcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cv_flavor"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="4dp"
+            android:id="@+id/cv_water"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAguaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/water" />
+
+                <ImageView
+                    android:id="@+id/imgAgua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/txtAguaLabel"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="center"
+                    android:src="@drawable/icn_epura" />
+
+                <TextView
+                    android:id="@+id/txtAgua"
+                    style="@style/style_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imgAgua"
+                    android:textColor="@color/color_white" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="4dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtGatoradeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gatorade" />
+
+                <ImageView
+                    android:id="@+id/imggay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/txtGatoradeLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/gatorade" />
+
+                <TextView
+                    android:id="@+id/txtGatorade"
+                    style="@style/style_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imggay"
+                    android:textColor="@color/color_white" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytcard2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lytcard"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="4dp"
+
+            android:id="@+id/cv_lipton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtLiptonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/water" />
+
+                <ImageView
+                    android:id="@+id/imglipton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/txtLiptonLabel"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="center"
+                    android:src="@drawable/icn_lipton" />
+
+                <TextView
+                    android:id="@+id/txtLipton"
+                    style="@style/style_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imglipton"
+                    android:textColor="@color/color_white" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="4dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtJumexLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gatorade" />
+
+                <ImageView
+                    android:id="@+id/imgjumex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/txtJumexLabel"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/icn_jumex" />
+
+                <TextView
+                    android:id="@+id/txtJumex"
+                    style="@style/style_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imgjumex"
+                    android:textColor="@color/color_white" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
