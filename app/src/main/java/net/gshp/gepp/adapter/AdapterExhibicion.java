@@ -39,7 +39,7 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
         TextView txt_name, txt_description, txt_location;
         final RadioButton rdb_yes;
         final RadioButton rdb_no;
-        ImageView img_camera, img_delete;
+        ImageView img_delete;
         TextView txt_num_photos;
         LinearLayout lyt_row_exhibition;
 
@@ -51,7 +51,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
             txt_location = (TextView) v.findViewById(R.id.txt_location);
             rdb_yes = (RadioButton) v.findViewById(R.id.rdb_yescamara_type);
             rdb_no = (RadioButton) v.findViewById(R.id.rdb_nocamara_type);
-            img_camera = (ImageView) v.findViewById(R.id.img_camera);
             img_delete = (ImageView) v.findViewById(R.id.img_delete_exhibition);
             lyt_row_exhibition = (LinearLayout) v.findViewById(R.id.lyt_row_exhibition);
 
@@ -78,12 +77,12 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                     }
                 }
             });
-            img_camera.setOnClickListener(onClickListener);
             rdb_no.setOnClickListener(onClickListener);
             rdb_yes.setOnClickListener(onClickListener);
             img_delete.setOnClickListener(onClickListener);
+            txt_num_photos.setOnClickListener(onClickListener);
 
-            v.setTag(new ViewHolder(txt_name, txt_num_photos, rdb_yes, rdb_no, img_camera, txt_description, txt_location, img_delete, lyt_row_exhibition));
+            v.setTag(new ViewHolder(txt_name, txt_num_photos, rdb_yes, rdb_no, txt_description, txt_location, img_delete, lyt_row_exhibition));
         } else {
             ViewHolder vh = (ViewHolder) v.getTag();
             txt_name = vh.txt_name;
@@ -92,7 +91,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
             txt_num_photos = vh.txt_num_photos;
             rdb_yes = vh.rdb_yes;
             rdb_no = vh.rdb_no;
-            img_camera = vh.img_camera;
             img_delete = vh.img_delete;
             lyt_row_exhibition = vh.lyt_row_exhibition;
 
@@ -105,7 +103,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
         txt_num_photos.setTag(dto);
         rdb_yes.setTag(dto);
         rdb_no.setTag(dto);
-        img_camera.setTag(dto);
         img_delete.setTag(dto);
         lyt_row_exhibition.setBackgroundColor(Color.WHITE);
 
@@ -119,7 +116,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 txt_num_photos.setVisibility(View.GONE);
                 rdb_yes.setVisibility(View.GONE);
                 rdb_no.setVisibility(View.GONE);
-                img_camera.setVisibility(View.GONE);
                 img_delete.setVisibility(View.GONE);
                 lyt_row_exhibition.setBackgroundColor(ContextApp.context.getResources().getColor(R.color.colorBtnBluePrimary));
                 break;
@@ -131,7 +127,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 txt_num_photos.setVisibility(View.GONE);
                 rdb_yes.setVisibility(View.GONE);
                 rdb_no.setVisibility(View.GONE);
-                img_camera.setVisibility(View.GONE);
                 img_delete.setVisibility(View.GONE);
                 lyt_row_exhibition.setBackgroundColor(ContextApp.context.getResources().getColor(R.color.colorBtnBluePrimary));
                 break;
@@ -143,7 +138,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 txt_num_photos.setVisibility(View.GONE);
                 rdb_yes.setVisibility(View.GONE);
                 rdb_no.setVisibility(View.GONE);
-                img_camera.setVisibility(View.GONE);
                 img_delete.setVisibility(View.GONE);
                 lyt_row_exhibition.setBackgroundColor(ContextApp.context.getResources().getColor(R.color.colorBtnBluePrimary));
                 break;
@@ -153,7 +147,6 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 txt_num_photos.setVisibility(View.VISIBLE);
                 rdb_yes.setVisibility(View.VISIBLE);
                 rdb_no.setVisibility(View.VISIBLE);
-                img_camera.setVisibility(View.VISIBLE);
                 img_delete.setVisibility(View.GONE);
                 txt_num_photos.setText(dto.getPhotoDone() + "/" + dto.getMax_photos());
                 txt_name.setText(dto.getExhibition_name());
@@ -166,14 +159,12 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
             rdb_yes.setVisibility(View.VISIBLE);
             rdb_no.setVisibility(View.VISIBLE);
             txt_num_photos.setVisibility(View.VISIBLE);
-            img_camera.setVisibility(View.VISIBLE);
             img_delete.setVisibility(View.GONE);
         } else if (dto.getTypeModule() == 2) {
             txt_name.setText(dto.getExhibition_name());
             rdb_yes.setVisibility(View.GONE);
             rdb_no.setVisibility(View.GONE);
             txt_num_photos.setVisibility(View.GONE);
-            img_camera.setVisibility(View.GONE);
             img_delete.setVisibility(View.VISIBLE);
         }
 
@@ -197,25 +188,22 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
     }
 
     class ViewHolder {
-
         TextView txt_name;
         TextView txt_description;
         TextView txt_location;
         TextView txt_num_photos;
         RadioButton rdb_yes;
         RadioButton rdb_no;
-        ImageView img_camera;
         ImageView img_delete;
         LinearLayout lyt_row_exhibition;
 
-        public ViewHolder(TextView txt_name, TextView txt_num_photos, RadioButton rdb_yes, RadioButton rdb_no, ImageView img_camera, TextView txt_description, TextView txt_location, ImageView img_delete, LinearLayout lyt_row_exhibition) {
+        public ViewHolder(TextView txt_name, TextView txt_num_photos, RadioButton rdb_yes, RadioButton rdb_no, TextView txt_description, TextView txt_location, ImageView img_delete, LinearLayout lyt_row_exhibition) {
             this.txt_name = txt_name;
             this.txt_description = txt_description;
             this.txt_location = txt_location;
             this.txt_num_photos = txt_num_photos;
             this.rdb_yes = rdb_yes;
             this.rdb_no = rdb_no;
-            this.img_camera = img_camera;
             this.img_delete = img_delete;
             this.lyt_row_exhibition = lyt_row_exhibition;
         }

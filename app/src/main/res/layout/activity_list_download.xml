@@ -4,28 +4,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarComunication"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_white" />
+        android:layout_height="wrap_content">
+
+    </include>
 
     <View
         android:id="@+id/vLine1"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/toolbarComunication"
+        android:layout_below="@id/toolbar"
         android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/txtLabel"
+        style="@style/style_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/vLine1"
-        android:background="@color/colorBackgroundBarUnderHeader"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:text="DOCUMENTOS"
-        android:textSize="14sp" />
+        android:text="DOCUMENTOS" />
 
     <View
         android:id="@+id/vLine2"
@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/vLine2"
         android:drawableLeft="@drawable/ic_action_search"
+        android:hint="BUSCAR"
         android:maxLines="1" />
 
     <ListView

@@ -27,6 +27,7 @@ public class DetailPdvCS extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_cs);
+
         init();
     }
 
@@ -68,7 +69,6 @@ public class DetailPdvCS extends AppCompatActivity {
         txtGayto.setText(dtoPdvCS.getGatorade());
         txtGayto.setBackgroundColor(Color.parseColor(dtoPdvCS.getGatorade_color()));
         txtNamePdv.setText(dtoPdv.getName());
-
 
     }
 }

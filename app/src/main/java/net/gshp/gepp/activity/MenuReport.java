@@ -47,12 +47,11 @@ public class MenuReport extends AppCompatActivity implements OnItemClickListener
         getSupportActionBar().hide();
         init();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-
-
-
+        txt_date.setText(Config.formatDate());
         adapter.notifyDataSetChanged();
         rvMain.setAdapter(adapter);
     }
@@ -61,7 +60,7 @@ public class MenuReport extends AppCompatActivity implements OnItemClickListener
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getString(R.string.app_bundle_name));
         rvMain = (RecyclerView) findViewById(R.id.rvMain);
         model = new ModelMenuReport(dtoBundle, this);
-
+        txt_date = (TextView) findViewById(R.id.txt_date);
         rvMain.setHasFixedSize(true);
         GridLayoutManager manager = new GridLayoutManager(this, 2);
         rvMain.setLayoutManager(manager);
@@ -91,7 +90,7 @@ public class MenuReport extends AppCompatActivity implements OnItemClickListener
         } else if (status == 1000) {
             model.updateTypeReport((DtoCatalog) object);
             validate(new Intent(this, CheckOut.class), getResources().getInteger(R.integer.CHECK_OUT));
-        }else if(status==R.layout.dialog_time_report){
+        } else if (status == R.layout.dialog_time_report) {
             finish();
         }
     }
@@ -102,9 +101,9 @@ public class MenuReport extends AppCompatActivity implements OnItemClickListener
             validate(new Intent(this, ReportExhibition.class), getResources().getInteger(R.integer.EXHIBICIONES));
         } else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.ENCUESTA)) {
             validate(new Intent(this, ListPoll.class), getResources().getInteger(R.integer.ENCUESTA));
-        }else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.ALERT)) {
+        } else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.ALERT)) {
             validate(new Intent(this, ScanAlert.class), getResources().getInteger(R.integer.ALERT));
-        }else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.PRE_CHECK_OUT)) {
+        } else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.PRE_CHECK_OUT)) {
             validate(new Intent(this, CheckOut.class), getResources().getInteger(R.integer.PRE_CHECK_OUT));
         }
     }

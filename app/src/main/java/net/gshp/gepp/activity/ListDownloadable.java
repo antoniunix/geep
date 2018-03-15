@@ -43,32 +43,29 @@ public class ListDownloadable extends AppCompatActivity implements View.OnClickL
     private EditText edt_search;
     private AdapterDownload adapterDownload;
     private ModelDownload modelDownload;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_download);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarComunication);
-        //toolbar.setNavigationIcon(R.drawable.logo);
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-
+        getSupportActionBar().hide();
         init();
     }
 
-    private void init(){
-        File f= new File(getString(R.string.app_path_photo));
-        if(!f.exists()){
-            if(!f.mkdirs()){
+    private void init() {
+        File f = new File(getString(R.string.app_path_photo));
+        if (!f.exists()) {
+            if (!f.mkdirs()) {
                 Log.e("Error : ", "Problem creating Image folder");
             }
         }
 
         modelDownload = new ModelDownload();
-        lstDownload = (ListView)findViewById(R.id.lst_download);
+        lstDownload = (ListView) findViewById(R.id.lst_download);
         modelDownload = new ModelDownload(this);
-        adapterDownload = (AdapterDownload)modelDownload.getAdapter();
+        adapterDownload = (AdapterDownload) modelDownload.getAdapter();
         lstDownload.setAdapter(adapterDownload);
-        edt_search=(EditText)findViewById(R.id.edt_search);
+        edt_search = (EditText) findViewById(R.id.edt_search);
         edt_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -97,11 +94,12 @@ public class ListDownloadable extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        DtoMeasurementDownloadSku dto = (DtoMeasurementDownloadSku)v.getTag();
+        DtoMeasurementDownloadSku dto = (DtoMeasurementDownloadSku) v.getTag();
         fileExist(dto);
 
 
     }
+
     public void openFile(DtoMeasurementDownloadSku dto) {
         String typeFile = dto.getExt();
         File file = new File(dto.getNameFile());
@@ -166,6 +164,7 @@ public class ListDownloadable extends AppCompatActivity implements View.OnClickL
     public void setOnFilter(String filter1) {
         adapterDownload.getFilter().filter(filter1);
     }
+
     public static boolean isNetwork() {
         ConnectivityManager connec = (ConnectivityManager) ContextApp.context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -179,9 +178,10 @@ public class ListDownloadable extends AppCompatActivity implements View.OnClickL
         return false;
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode== Activity.RESULT_OK || requestCode==1){
+        if (resultCode == Activity.RESULT_OK || requestCode == 1) {
             finish();
         }
     }

@@ -66,7 +66,7 @@ public class DaoPdvCs extends DAO {
                     + SABORESS + "," + AGUA + ","
                     + GAYTO + "," + LIPTON + ","
                     + STARTBUCK + "," + JUMEX + ","
-                    + MIXER +"," + COLASMSCOLOR + ","
+                    + MIXER + "," + COLASMSCOLOR + ","
                     + COLASSCOLOR + "," + SABORESMSCOLOR + ","
                     + SABORESSSCOLOR + "," + GAYTOCOLOR
                     + "," + LIPTONCOLOR + "," + JUMEXCOLOR
@@ -245,6 +245,8 @@ public class DaoPdvCs extends DAO {
             catalogo.setSabores_ss_color(cursor.getString(cursor.getColumnIndexOrThrow(SABORESSSCOLOR)));
             catalogo.setAgua_color(cursor.getString(cursor.getColumnIndexOrThrow(AGUACOLOR)));
             catalogo.setJumex_color(cursor.getString(cursor.getColumnIndexOrThrow(JUMEXCOLOR)));
+            catalogo.setLipton_color(cursor.getString(cursor.getColumnIndexOrThrow(LIPTONCOLOR)));
+            catalogo.setGatorade_color(cursor.getString(cursor.getColumnIndexOrThrow(GAYTOCOLOR)));
         }
         cursor.close();
         db.close();
