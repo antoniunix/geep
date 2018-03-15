@@ -24,7 +24,106 @@ public class DtoPdvCS {
     private String starbucks;
     private String jumex;
     private String mixers;
+    private String colas_ms_color;
+    private String colas_ss_color;
+    private String sabores_ms_color;
+    private String sabores_ss_color;
+    private String agua_color;
+    private String gatorade_color;
+    private String lipton_color;
+    private String jumex_color;
+    private String starbucks_color;
+    private String mixers_color;
 
+    public String getColas_ms_color() {
+        return colas_ms_color;
+    }
+
+    public DtoPdvCS setColas_ms_color(String colas_ms_color) {
+        this.colas_ms_color = colas_ms_color;
+        return this;
+    }
+
+    public String getColas_ss_color() {
+        return colas_ss_color;
+    }
+
+    public DtoPdvCS setColas_ss_color(String colas_ss_color) {
+        this.colas_ss_color = colas_ss_color;
+        return this;
+    }
+
+    public String getSabores_ms_color() {
+        return sabores_ms_color;
+    }
+
+    public DtoPdvCS setSabores_ms_color(String sabores_ms_color) {
+        this.sabores_ms_color = sabores_ms_color;
+        return this;
+    }
+
+    public String getSabores_ss_color() {
+        return sabores_ss_color;
+    }
+
+    public DtoPdvCS setSabores_ss_color(String sabores_ss_color) {
+        this.sabores_ss_color = sabores_ss_color;
+        return this;
+    }
+
+    public String getAgua_color() {
+        return agua_color;
+    }
+
+    public DtoPdvCS setAgua_color(String agua_color) {
+        this.agua_color = agua_color;
+        return this;
+    }
+
+    public String getGatorade_color() {
+        return gatorade_color;
+    }
+
+    public DtoPdvCS setGatorade_color(String gatorade_color) {
+        this.gatorade_color = gatorade_color;
+        return this;
+    }
+
+    public String getLipton_color() {
+        return lipton_color;
+    }
+
+    public DtoPdvCS setLipton_color(String lipton_color) {
+        this.lipton_color = lipton_color;
+        return this;
+    }
+
+    public String getJumex_color() {
+        return jumex_color;
+    }
+
+    public DtoPdvCS setJumex_color(String jumex_color) {
+        this.jumex_color = jumex_color;
+        return this;
+    }
+
+    public String getStarbucks_color() {
+        return starbucks_color;
+    }
+
+    public DtoPdvCS setStarbucks_color(String starbucks_color) {
+        this.starbucks_color = starbucks_color;
+        return this;
+    }
+
+    public String getMixers_color() {
+        return mixers_color;
+    }
+
+    public DtoPdvCS setMixers_color(String mixers_color) {
+        this.mixers_color = mixers_color;
+        return this;
+    }
 
     public long getPdv_id() {
         return pdv_id;

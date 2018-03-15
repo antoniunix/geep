@@ -32,9 +32,19 @@ public class DaoPdvCs extends DAO {
     private final String AGUA = "agua";
     private final String GAYTO = "gatorade";
     private final String LIPTON = "lipton";
-    private final String START = "starbucks";
+    private final String STARTBUCK = "starbucks";
     private final String JUMEX = "jumex";
     private final String MIXER = "mixers";
+    private final String COLASMSCOLOR = "colas_ms_color";
+    private final String COLASSCOLOR = "colas_ss_color";
+    private final String SABORESMSCOLOR = "sabores_ms_color";
+    private final String SABORESSSCOLOR = "sabores_ss_color";
+    private final String GAYTOCOLOR = "gatorade_color";
+    private final String LIPTONCOLOR = "lipton_color";
+    private final String JUMEXCOLOR = "jumex_color";
+    private final String STARTBUCKCOLOR = "starbucks_color";
+    private final String MIXERCOLOR = "mixers_color";
+    private final String AGUACOLOR = "agua_color";
 
     public DaoPdvCs() {
         super(TABLE_NAME, PK_FIELD);
@@ -49,9 +59,19 @@ public class DaoPdvCs extends DAO {
         int resp = 0;
         try {
             String qry = "INSERT INTO " + TABLE_NAME +
-                    "( " + IDPDV + "," + OPORUNITY + "," + SUCCESPHOTO + "," + CLUESTER + "," + EXECUTION + "," + COLASMS + "," + COLASS +
-                    "," + SABORESMS + "," + SABORESS + "," + AGUA + "," + GAYTO + "," + LIPTON + "," + START + "," + JUMEX + "," + MIXER + " )" +
-                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    "( " + IDPDV + "," + OPORUNITY + ","
+                    + SUCCESPHOTO + "," + CLUESTER + ","
+                    + EXECUTION + "," + COLASMS + ","
+                    + COLASS + "," + SABORESMS + ","
+                    + SABORESS + "," + AGUA + ","
+                    + GAYTO + "," + LIPTON + ","
+                    + STARTBUCK + "," + JUMEX + ","
+                    + MIXER +"," + COLASMSCOLOR + ","
+                    + COLASSCOLOR + "," + SABORESMSCOLOR + ","
+                    + SABORESSSCOLOR + "," + GAYTOCOLOR
+                    + "," + LIPTONCOLOR + "," + JUMEXCOLOR
+                    + "," + STARTBUCKCOLOR + "," + MIXERCOLOR + "," + AGUACOLOR + " )" +
+                    " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             SQLiteStatement inStatement = db.compileStatement(qry);
             db.beginTransaction();
 
@@ -118,12 +138,12 @@ public class DaoPdvCs extends DAO {
                     inStatement.bindNull(12);
                 }
                 try {
-                    inStatement.bindString(13, dto.getJumex());
+                    inStatement.bindString(13, dto.getStarbucks());
                 } catch (Exception e) {
                     inStatement.bindNull(13);
                 }
                 try {
-                    inStatement.bindString(14, dto.getStarbucks());
+                    inStatement.bindString(14, dto.getJumex());
                 } catch (Exception e) {
                     inStatement.bindNull(14);
                 }
@@ -131,6 +151,58 @@ public class DaoPdvCs extends DAO {
                     inStatement.bindString(15, dto.getMixers());
                 } catch (Exception e) {
                     inStatement.bindNull(15);
+                }
+                try {
+                    inStatement.bindString(16, dto.getColas_ms_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(16);
+                }
+                try {
+                    inStatement.bindString(17, dto.getColas_ss_color());
+
+                } catch (Exception e) {
+                    inStatement.bindNull(17);
+                }
+                try {
+                    inStatement.bindString(18, dto.getSabores_ms_color());
+
+                } catch (Exception e) {
+                    inStatement.bindNull(18);
+                }
+                try {
+                    inStatement.bindString(19, dto.getSabores_ss_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(19);
+                }
+                try {
+                    inStatement.bindString(20, dto.getGatorade_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(20);
+                }
+                try {
+                    inStatement.bindString(21, dto.getLipton_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(21);
+                }
+                try {
+                    inStatement.bindString(22, dto.getJumex_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(22);
+                }
+                try {
+                    inStatement.bindString(23, dto.getStarbucks_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(23);
+                }
+                try {
+                    inStatement.bindString(24, dto.getMixers_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(24);
+                }
+                try {
+                    inStatement.bindString(25, dto.getAgua_color());
+                } catch (Exception e) {
+                    inStatement.bindNull(25);
                 }
                 inStatement.executeInsert();
             }
@@ -164,9 +236,15 @@ public class DaoPdvCs extends DAO {
             catalogo.setAgua(cursor.getString(cursor.getColumnIndexOrThrow(AGUA)));
             catalogo.setGatorade(cursor.getString(cursor.getColumnIndexOrThrow(GAYTO)));
             catalogo.setLipton(cursor.getString(cursor.getColumnIndexOrThrow(LIPTON)));
-            catalogo.setStarbucks(cursor.getString(cursor.getColumnIndexOrThrow(START)));
+            catalogo.setStarbucks(cursor.getString(cursor.getColumnIndexOrThrow(STARTBUCK)));
             catalogo.setJumex(cursor.getString(cursor.getColumnIndexOrThrow(JUMEX)));
             catalogo.setMixers(cursor.getString(cursor.getColumnIndexOrThrow(MIXER)));
+            catalogo.setColas_ms_color(cursor.getString(cursor.getColumnIndexOrThrow(COLASMSCOLOR)));
+            catalogo.setColas_ss_color(cursor.getString(cursor.getColumnIndexOrThrow(COLASSCOLOR)));
+            catalogo.setSabores_ms_color(cursor.getString(cursor.getColumnIndexOrThrow(SABORESMSCOLOR)));
+            catalogo.setSabores_ss_color(cursor.getString(cursor.getColumnIndexOrThrow(SABORESSSCOLOR)));
+            catalogo.setAgua_color(cursor.getString(cursor.getColumnIndexOrThrow(AGUACOLOR)));
+            catalogo.setJumex_color(cursor.getString(cursor.getColumnIndexOrThrow(JUMEXCOLOR)));
         }
         cursor.close();
         db.close();

@@ -474,7 +474,17 @@ public class Tables {
             "lipton TEXT," +
             "starbucks TEXT," +
             "jumex TEXT," +
-            "mixers TEXT)";
+            "mixers TEXT," +
+            "colas_ms_color," +
+            "colas_ss_color," +
+            "sabores_ms_color," +
+            "sabores_ss_color," +
+            "agua_color," +
+            "gatorade_color," +
+            "lipton_color," +
+            "jumex_color," +
+            "starbucks_color," +
+            "mixers_color)";
 
 
 }

@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </include>
+
+    <TextView
+        android:id="@+id/txtNamePdv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:textSize="32dp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_photo"
+        android:layout_margin="4dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNamePdv">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,20 +43,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="@string/oportunity" />
+                    android:text="@string/oportunity"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="6"
+                    android:layout_weight="4"
+                    android:gravity="center"
                     android:text="@string/photo_success" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
                     android:text="@string/hours_ejecution" />
 
             </LinearLayout>
@@ -62,7 +79,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="@color/colorStatusGreen"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/txthrsEjecution"
@@ -78,6 +97,8 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
+        android:layout_marginTop="16dp"
+        android:layout_margin="4dp"
         android:id="@+id/cv_measurement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,12 +110,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:textAlignment="center"
                 android:id="@+id/txtMeasurementLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/measurement" />
+                android:text="COLAS" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,19 +133,22 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/SS" />
 
                     <TextView
-                        style="@style/style_detail"
                         android:id="@+id/txtColaSS"
+                        style="@style/style_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <ImageView
+
                     android:id="@+id/img1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -139,15 +164,16 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:gravity="center"
-
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
+                        android:textAlignment="center"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/SS" />
 
                     <TextView
-                        style="@style/style_detail"
                         android:id="@+id/txtColaMS"
+                        style="@style/style_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -160,6 +186,7 @@
     <!-- SABORES -->
     <android.support.v7.widget.CardView
         android:id="@+id/cv_flavor"
+        android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cv_measurement">
@@ -170,10 +197,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:id="@+id/txtFlavorLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/measurement" />
+                android:text="SABORES" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -188,14 +217,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:gravity="center"
+                        android:layout_gravity="center"
+
+                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/SS" />
 
                     <TextView
-                        style="@style/style_detail"
                         android:id="@+id/txtColaSSFlavor"
+                        style="@style/style_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -203,9 +235,15 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
+                    android:layout_weight=".5"
                     android:scaleType="center"
-                    android:src="@drawable/icn_pepsi" />
+                    android:src="@drawable/icn_jumex" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:scaleType="center"
+                    android:src="@drawable/icn_lipton" />
 
                 <LinearLayout
                     android:id="@+id/lytMSFlavor"
@@ -215,14 +253,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="@string/SS" />
 
                     <TextView
-                        style="@style/style_detail"
+                        android:layout_gravity="center"
                         android:id="@+id/txtColaMSFlavor"
+                        style="@style/style_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -234,6 +275,7 @@
     </android.support.v7.widget.CardView>
 
     <LinearLayout
+
         android:id="@+id/lytcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -241,10 +283,10 @@
         android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
-            android:layout_margin="4dp"
             android:id="@+id/cv_water"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1">
 
             <RelativeLayout
@@ -279,10 +321,10 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_margin="4dp"
-
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1">
 
             <RelativeLayout
@@ -328,11 +370,11 @@
         android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
-            android:layout_margin="4dp"
-
             android:id="@+id/cv_lipton"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1">
 
             <RelativeLayout
@@ -343,7 +385,7 @@
                     android:id="@+id/txtLiptonLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/water" />
+                    android:text="@string/lipton" />
 
                 <ImageView
                     android:id="@+id/imglipton"
@@ -367,10 +409,10 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_margin="4dp"
-
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1">
 
             <RelativeLayout
@@ -381,7 +423,7 @@
                     android:id="@+id/txtJumexLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/gatorade" />
+                    android:text="@string/jumex" />
 
                 <ImageView
                     android:id="@+id/imgjumex"

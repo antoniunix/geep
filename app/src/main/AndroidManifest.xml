@@ -143,6 +143,8 @@
 
         <activity
             android:name=".activity.DetailPdvCS"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="nosensor" />
 
 
