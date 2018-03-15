@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,7 +24,9 @@ import com.google.android.gms.vision.text.Line;
 import net.gshp.gepp.R;
 import net.gshp.gepp.contextApp.ContextApp;
 import net.gshp.gepp.dto.DtoBundle;
+import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.geolocation.ServiceCheck;
+import net.gshp.gepp.model.ModelDetailPdv;
 import net.gshp.gepp.model.ModelMenuReport;
 
 /**
@@ -33,12 +36,15 @@ import net.gshp.gepp.model.ModelMenuReport;
 public class DetailPdv extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback {
 
     private DtoBundle dtoBundle;
-    private Button btninit;
+    private Button btninit,btncancel;
     private ScrollView scroll;
     private MapView mapView;
     private GoogleMap map;
     private ModelMenuReport modelMenuReport;
     private LinearLayout lyt_scorecard_info;
+    private TextView txtpdvName;
+    private ModelDetailPdv model;
+    private DtoPdv dtoPdv;
 
 
     @Override
@@ -59,13 +65,24 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
     private void init() {
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getString(R.string.app_bundle_name));
         modelMenuReport = new ModelMenuReport(dtoBundle, this);
+        model=new ModelDetailPdv();
+        dtoPdv=model.getPdv(dtoBundle.getIdPDV());
         btninit = (Button) findViewById(R.id.btninit);
+        btncancel = (Button) findViewById(R.id.btncancel);
+        txtpdvName = (TextView) findViewById(R.id.txtpdvName);
         btninit.setOnClickListener(this);
+        btncancel.setOnClickListener(this);
         mapView = (MapView) findViewById(R.id.map);
         scroll = (ScrollView) findViewById(R.id.scroll);
         lyt_scorecard_info = (LinearLayout) findViewById(R.id.lyt_scorecard_info);
         lyt_scorecard_info.setOnClickListener(this);
         setUpMapIfNeeded();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txtpdvName.setText(dtoPdv.getName());
     }
 
     @Override
@@ -81,6 +98,8 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
         } else if(view.getId()==R.id.lyt_scorecard_info){
             Log.e("else","l");
             startActivityForResult(new Intent(this, DetailPdvCS.class).putExtra(getString(R.string.app_bundle_name), dtoBundle), 1);
+            finish();
+        }else if(view.getId()==R.id.btncancel){
             finish();
         }
 

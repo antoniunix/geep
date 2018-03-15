@@ -8,7 +8,7 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/txtNamePdv"
@@ -26,6 +26,7 @@
         android:id="@+id/txtInfoLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txtUser"
         android:text="@string/sotreData" />
 
     <LinearLayout
@@ -61,9 +62,9 @@
 
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_above="@+id/lnyButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/lnyButton"
         android:layout_below="@id/txtInfoLabel">
 
         <RelativeLayout
@@ -79,10 +80,12 @@
                 android:layout_alignParentStart="true" />
 
             <LinearLayout
+                android:padding="@dimen/activity_vertical_margin_middle"
                 android:id="@+id/lyt_scorecard_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/map"
+                android:background="@color/colorStatusGreen"
                 android:orientation="horizontal">
 
                 <TextView
@@ -91,18 +94,23 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
                     android:layout_weight="3"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="@color/color_withe" />
 
                 <TextView
                     android:id="@+id/txtporcent"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:text="0%"
+                    android:textColor="@color/color_withe" />
 
-                <ImageButton
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@color/colorStatusGreen"
+                    android:src="@drawable/ic_trending_flat_white_24dp" />
 
             </LinearLayout>
 
