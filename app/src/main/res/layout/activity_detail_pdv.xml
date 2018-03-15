@@ -28,8 +28,40 @@
         android:layout_height="wrap_content"
         android:text="@string/sotreData" />
 
+    <LinearLayout
+        android:id="@+id/lnyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btncancel"
+            style="@style/style_Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignStart="@+id/btninit"
+            android:layout_below="@+id/rlyContainer"
+            android:layout_weight="1"
+            android:text="@string/app_btn_cancel" />
+
+        <Button
+            android:id="@+id/btninit"
+            style="@style/style_Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/rlyContainer"
+            android:layout_weight="1"
+            android:text="@string/init" />
+
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scroll"
+        android:layout_above="@+id/lnyButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txtInfoLabel">
@@ -74,120 +106,23 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/rly_info"
+
+            <TextView
+                android:id="@+id/txtAddressLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lyt_scorecard_info"
-                android:gravity="center"
-                android:padding="16dp">
+                android:text="@string/address" />
 
-                <!--Info Manger-->
-                <RelativeLayout
-                    android:id="@+id/rlyManager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgManager"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="@dimen/activity_horizontal_margin" />
-
-                    <TextView
-                        android:id="@+id/txtManager"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imgManager"
-                        android:text="@string/manager_store" />
-
-                    <TextView
-                        android:id="@+id/nameManager"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imgManager"
-                        android:layout_below="@+id/txtManager" />
-
-                </RelativeLayout>
-
-                <!--Info Manger-->
-                <RelativeLayout
-                    android:id="@+id/rlyBoss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/rlyManager">
-
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/imgBoss"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="@dimen/activity_horizontal_margin" />
-
-                    <TextView
-                        android:id="@+id/txtBoss"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imgBoss"
-                        android:text="@string/manager_store" />
-
-                    <TextView
-                        android:id="@+id/nameBossr"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imgBoss"
-                        android:layout_below="@+id/txtBoss" />
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/txtAddressLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rlyBoss"
-                    android:text="@string/address" />
-
-                <TextView
-                    android:id="@+id/txtAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtAddressLabel" />
-
-                <TextView
-                    android:id="@+id/txtdayToVisitLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/daytoVisit" />
-
-
-            </RelativeLayout>
-
-
-            <Button
-                android:id="@+id/btninit"
-                style="@style/btnGeneric"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rly_info"
-                android:layout_alignParentEnd="true"
-                android:background="@color/colorBtnBluePrimary"
-                android:text="@string/init" />
-
-            <Button
-                android:layout_alignParentStart="true"
-                android:id="@+id/btncancel"
-                style="@style/btnGeneric"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/btninit"
-                android:layout_below="@+id/rly_info"
-                android:background="@color/colorBtnBlueSecond"
-                android:text="@string/app_btn_cancel" />
+                android:layout_below="@id/txtAddressLabel" />
 
 
         </RelativeLayout>
 
 
     </ScrollView>
-
-
 </RelativeLayout>

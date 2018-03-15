@@ -23,7 +23,7 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
 
     private Activity activity;
     private AHBottomNavigation ahBottomNavigation;
-    private AHBottomNavigationItem ahHome, ahSchedule, ahVisit, ahScan, ahFile;
+    private AHBottomNavigationItem ahHome, ahSchedule, ahVisit, ahFile;
 
     public ModelAHBottomNavigation(Activity activity) {
         this.activity = activity;
@@ -32,7 +32,6 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
         ahHome = new AHBottomNavigationItem("", R.drawable.icn_home, R.color.color_black);
         ahSchedule = new AHBottomNavigationItem("", R.drawable.icn_vdtos, R.color.color_black);
         ahVisit = new AHBottomNavigationItem("", R.drawable.icn_alertas, R.color.color_black);
-        ahScan = new AHBottomNavigationItem("", R.drawable.icn_mensajes, R.color.color_black);
         ahFile = new AHBottomNavigationItem("", R.drawable.icn_documentos, R.color.color_black);
 
         ahBottomNavigation.setAccentColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.colorSelectedNavigationBar));
@@ -41,7 +40,6 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
         ahBottomNavigation.addItem(ahHome);
         ahBottomNavigation.addItem(ahSchedule);
         ahBottomNavigation.addItem(ahVisit);
-        ahBottomNavigation.addItem(ahScan);
         ahBottomNavigation.addItem(ahFile);
 
         ahBottomNavigation.setOnTabSelectedListener(this);
@@ -54,15 +52,15 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
         if (activity instanceof Home) {
             ahBottomNavigation.setCurrentItem(0);
         } else if (activity instanceof Visit) {
-            ahBottomNavigation.setCurrentItem(4);
+            ahBottomNavigation.setCurrentItem(2);
         } else if (activity instanceof VisitByDay) {
             ahBottomNavigation.setCurrentItem(1);
         }
 
         if (countNew > 0) {
-            ahBottomNavigation.setNotification(countNew + "", 3);
+            ahBottomNavigation.setNotification(countNew + "", 2);
         } else {
-            ahBottomNavigation.setNotification("", 3);
+            ahBottomNavigation.setNotification("", 2);
         }
     }
 
@@ -71,6 +69,7 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
 
         if (activity instanceof Home) {
             Intent intent;
+
             switch (position) {
                 case 0:
                     break;
@@ -78,15 +77,11 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
                     activity.startActivity(new Intent(activity.getApplicationContext(), VisitByDay.class));
                     break;
                 case 2:
-                    activity.startActivity(new Intent(activity.getApplicationContext(), ScanAlert.class));
-                    break;
-
-                case 3:
                     DialogMessageDocuments dialogMessageDocuments = new DialogMessageDocuments();
                     FragmentManager fragmentManager = ((Home) activity).getSupportFragmentManager();
                     dialogMessageDocuments.show(fragmentManager, "message");
                     break;
-                case 4:
+                case 3:
                     activity.startActivity(new Intent(activity.getApplicationContext(), Visit.class));
                     break;
             }
@@ -99,15 +94,11 @@ public class ModelAHBottomNavigation implements AHBottomNavigation.OnTabSelected
 
                     break;
                 case 2:
-                    activity.startActivity(new Intent(activity.getApplicationContext(), ScanAlert.class));
-                    activity.finish();
-                    break;
-                case 3:
                     DialogMessageDocuments dialogMessageDocuments = new DialogMessageDocuments();
                     FragmentManager fragmentManager = ((VisitByDay) activity).getSupportFragmentManager();
                     dialogMessageDocuments.show(fragmentManager, "message");
                     break;
-                case 4:
+                case 3:
                     activity.startActivity(new Intent(activity.getApplicationContext(), Visit.class));
                     activity.finish();
                     break;

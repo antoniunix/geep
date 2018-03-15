@@ -9,7 +9,10 @@
     </style>
 
     <style name="title_text_toolbar_style_dialog" parent="title_text_toolbar_style">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:textSize">20sp</item>
     </style>
 
@@ -31,12 +34,12 @@
         <item name="android:textColor">@color/color_withe</item>
     </style>
 
-    <style name="btnGeneric">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/color_withe</item>
-        <item name="android:textStyle">bold</item>
+    <style name="style_Button">
+        <item name="android:background">@drawable/shape_button</item>
+        <item name="android:textColor">@color/colorTextButton</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
     </style>
+
 
     <style name="tool_bar_style_dialog" parent="tool_bar_style">
         <item name="android:background">@color/colorBlue</item>

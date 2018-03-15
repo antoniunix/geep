@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FF0000</color>
     <color name="colorBlack">#000000</color>
     <color name="color_txt_black">#414648</color>
     <color name="colorBlue">#4689cd</color>
@@ -44,5 +44,9 @@
     <color name="colorBtnBluePrimary">#0A5996</color>
     <color name="colorBtnBlueSecond">#0E7AD1</color>
     <color name="color_gray">#A6A8AD</color>
+
+    <color name="colorShapeButtonFinish">#FF0000</color>
+    <color name="colorShapeButtonInit">#FF0000</color>
+    <color name="colorTextButton">#FFFFFF</color>
 
 </resources>
