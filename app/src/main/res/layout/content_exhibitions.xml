@@ -72,7 +72,7 @@
 
         <Button
             android:id="@+id/btn_save_exhibition"
-            style="@style/btnGeneric"
+            style="@style/style_Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -81,7 +81,7 @@
 
         <Button
             android:id="@+id/btn_add_exhibition"
-            style="@style/btnGeneric"
+            style="@style/style_Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

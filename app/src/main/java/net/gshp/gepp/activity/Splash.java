@@ -29,14 +29,11 @@ public class Splash extends AppCompatActivity {
     private Timer timer;
     private Context context;
     private WeakReference<Splash> wakReference;
-    private VideoView videoViewSplash;
 
     public void init() {
         context = this;
-        videoViewSplash = (VideoView) findViewById(R.id.videoViewSplash);
         timer = new Timer();
         wakReference = new WeakReference<Splash>(this);
-        showVideo();
 
     }
 
@@ -76,10 +73,4 @@ public class Splash extends AppCompatActivity {
         super.onResume();
     }
 
-    private void showVideo() {
-        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/"
-                + R.raw.splash);
-        videoViewSplash.setVideoURI(videoUri);
-        videoViewSplash.start();
-    }
 }
