@@ -75,13 +75,13 @@ public class DialogReportActivityCaptureComment extends DialogFragment implement
         btn_save.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
 
-        lstDtoMeasurementCauseExhibitions = daoMeasurementCauseExhibition.select(dtoPdv);
+        lstDtoMeasurementCauseExhibitions = daoMeasurementCauseExhibition.select(dtoPdv, dtoReportExhibitionMantained.getId_exhibition_group());
         lstStrings = new ArrayList<String>(lstDtoMeasurementCauseExhibitions.size());
         for (DtoReportExhibitionMantainedCause dto : lstDtoMeasurementCauseExhibitions) {
             lstStrings.add(dto.getComment());
         }
         //adapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_simple_list, lstStrings);
-        spn_type.setAdapter(new ArrayAdapter<String>(ContextApp.context,R.layout.row_spiner_drawable,lstStrings));
+        spn_type.setAdapter(new ArrayAdapter<String>(ContextApp.context, R.layout.row_spiner_drawable, lstStrings));
 
         DtoReportExhibitionMantainedCause cause = daoMeasurementCauseExhibition.existCause(dtoBundle.getIdReportLocal(), dtoReportExhibitionMantained.getHashExhibition());
         if (cause.getIdCause() != null) {

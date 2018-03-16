@@ -33,7 +33,6 @@ public class DtoReportExhibitionMantained implements Parcelable {
     private int position;
     private int typeModule;
     private int idReport;
-
     private int count;
 
     @Override
@@ -269,6 +268,10 @@ public class DtoReportExhibitionMantained implements Parcelable {
                 '}';
     }
 
+    public DtoReportExhibitionMantained() {
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -301,12 +304,9 @@ public class DtoReportExhibitionMantained implements Parcelable {
         dest.writeInt(this.count);
     }
 
-    public DtoReportExhibitionMantained() {
-    }
-
     protected DtoReportExhibitionMantained(Parcel in) {
         this.id = in.readInt();
-        this.idReportLocal = in.readInt();
+        this.idReportLocal = in.readLong();
         this.hashExhibition = in.readString();
         this.isExhibit = in.readInt();
         this.hash = in.readString();
@@ -330,7 +330,7 @@ public class DtoReportExhibitionMantained implements Parcelable {
         this.count = in.readInt();
     }
 
-    public static final Parcelable.Creator<DtoReportExhibitionMantained> CREATOR = new Parcelable.Creator<DtoReportExhibitionMantained>() {
+    public static final Creator<DtoReportExhibitionMantained> CREATOR = new Creator<DtoReportExhibitionMantained>() {
         @Override
         public DtoReportExhibitionMantained createFromParcel(Parcel source) {
             return new DtoReportExhibitionMantained(source);
@@ -341,6 +341,4 @@ public class DtoReportExhibitionMantained implements Parcelable {
             return new DtoReportExhibitionMantained[size];
         }
     };
-
-
 }
