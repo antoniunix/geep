@@ -384,6 +384,7 @@ public class Tables {
     public final String TableMeasurementCauseExhibition = "CREATE TABLE measurement_cause_exhibition(" +
             "id_measurement INTEGER," +
             "id_item_relation INTEGER," +
+            "idGroup INTEGER,"+
             "value TEXT)";
 
     public final String TableMeasurementExhibitionClient = "CREATE TABLE measurement_exhibition_client("

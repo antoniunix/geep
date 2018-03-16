@@ -83,6 +83,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.rdb_nocamara_type:
                 DtoReportExhibitionMantained dtoReport = (DtoReportExhibitionMantained) v.getTag();
+                Log.e("leo", "type " + dtoReport.getId_exhibition_group());
                 DialogReportActivityCaptureComment dialogFragment = new DialogReportActivityCaptureComment();
                 dialogFragment.setCancelable(false);
                 dialogFragment.setArgument(dtoBundle, dtoReport, this);
@@ -103,6 +104,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
                 } else {
                     modelExhibitions.saveExhibition();
                     Toast.makeText(this, "Se guardo correctamente", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 break;
             case R.id.img_delete_exhibition:
@@ -126,7 +128,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
 
 
     public void onEvent(DtoReportExhibitionMantained dtoReportExhibitionMantained) {
-        Log.e("hash", " event "+dtoReportExhibitionMantained.toString());
+        Log.e("hash", " event " + dtoReportExhibitionMantained.toString());
         adapterExhibicion.add(dtoReportExhibitionMantained);
         adapterExhibicion.notifyDataSetChanged();
     }

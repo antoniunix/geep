@@ -12,6 +12,7 @@ import net.gshp.gepp.dao.DaoPdvCs;
 import net.gshp.gepp.dto.DtoBundle;
 import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.dto.DtoPdvCS;
+import net.gshp.gepp.util.Config;
 
 /**
  * Created by leo on 14/03/18.
@@ -20,14 +21,13 @@ import net.gshp.gepp.dto.DtoPdvCS;
 public class DetailPdvCS extends AppCompatActivity {
     private DtoPdv dtoPdv;
     private DtoBundle dtoBundle;
-    private TextView txtNamePdv, txtOportunity, txtphotoSuccess, txthrsEjecution, txtColaSS, txtColaMS, txtColaSSFlavor, txtColaMSFlavor, txtAgua, txtGayto, txtLipton, txtJumex;
+    private TextView txt_date,txtNamePdv, txtOportunity, txtphotoSuccess, txthrsEjecution, txtColaSS, txtColaMS, txtColaSSFlavor, txtColaMSFlavor, txtAgua, txtGayto, txtLipton, txtJumex;
     private DtoPdvCS dtoPdvCS;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_cs);
-
         init();
     }
 
@@ -47,6 +47,7 @@ public class DetailPdvCS extends AppCompatActivity {
         txtGayto = (TextView) findViewById(R.id.txtGatorade);
         txtLipton = (TextView) findViewById(R.id.txtLipton);
         txtJumex = (TextView) findViewById(R.id.txtJumex);
+        txt_date=(TextView) findViewById(R.id.txt_date);
 
 
         txtOportunity.setText(dtoPdvCS.getOportunity());
@@ -70,5 +71,11 @@ public class DetailPdvCS extends AppCompatActivity {
         txtGayto.setBackgroundColor(Color.parseColor(dtoPdvCS.getGatorade_color()));
         txtNamePdv.setText(dtoPdv.getName());
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txt_date.setText(Config.formatDate());
     }
 }

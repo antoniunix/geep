@@ -11,6 +11,16 @@ public class DtoMeasurementFilter {
     private String value,filter1, filter2, filter3;
     private int min_photos, max_photos;
     private long id_location, orden;
+    private long idGroup;
+
+    public long getIdGroup() {
+        return idGroup;
+    }
+
+    public DtoMeasurementFilter setIdGroup(long idGroup) {
+        this.idGroup = idGroup;
+        return this;
+    }
 
     public String getFilter1() {
         return filter1;

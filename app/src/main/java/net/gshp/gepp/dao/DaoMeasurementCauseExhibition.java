@@ -28,6 +28,7 @@ public class DaoMeasurementCauseExhibition extends DAO {
     private final String ID_MEASUREMENT = "id_measurement";
     private final String ID_ITEM_RELATION = "id_item_relation";
     private final String VALUE = "value";
+    private final String IDGROUP = "idGroup";
 
     public DaoMeasurementCauseExhibition() {
         super(TABLE_NAME, PK_FIELD);
@@ -42,8 +43,8 @@ public class DaoMeasurementCauseExhibition extends DAO {
         try {
             SQLiteStatement insStmnt = db.compileStatement("" + "INSERT INTO "
                     + TABLE_NAME + " (" + ID_MEASUREMENT + "," + ID_ITEM_RELATION + ","
-                    + VALUE + ") " +
-                    "VALUES(?,?,?);");
+                    + VALUE + "," + IDGROUP + ") " +
+                    "VALUES(?,?,?,?);");
             db.beginTransaction();
             for (DtoMeasurementFilter DtoCatalog : obj) {
                 try {
@@ -61,6 +62,11 @@ public class DaoMeasurementCauseExhibition extends DAO {
                 } catch (Exception e) {
                     insStmnt.bindNull(3);
                 }
+                try {
+                    insStmnt.bindLong(4, DtoCatalog.getIdGroup());
+                } catch (Exception e) {
+                    insStmnt.bindNull(4);
+                }
                 insStmnt.executeInsert();
             }
 
@@ -74,7 +80,7 @@ public class DaoMeasurementCauseExhibition extends DAO {
         return resp;
     }
 
-    public List<DtoReportExhibitionMantainedCause> select(DtoPdv dtoPdv) {
+    public List<DtoReportExhibitionMantainedCause> select(DtoPdv dtoPdv, int idGroup) {
         db = helper.getWritableDatabase();
         String qry = "SELECT DISTINCT\n" +
                 "measurement_cause_exhibition.id_item_relation,\n" +
@@ -91,7 +97,9 @@ public class DaoMeasurementCauseExhibition extends DAO {
                 "(measurement_exhibition_client.id_item_relation=" + dtoPdv.getIdClient() + " OR measurement_exhibition_client.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_format.id_item_relation=" + dtoPdv.getIdFormat() + " OR measurement_exhibition_format.id_item_relation ISNULL) AND\n" +
                 "(measurement_exhibition_pdv.id_item_relation=" + dtoPdv.getId() + " OR measurement_exhibition_pdv.id_item_relation ISNULL) AND\n" +
-                "(measurement_exhibition_rtm.id_item_relation=" + dtoPdv.getIdRtm() + " OR measurement_exhibition_rtm.id_item_relation ISNULL) ";
+                "(measurement_exhibition_rtm.id_item_relation=" + dtoPdv.getIdRtm() + " OR measurement_exhibition_rtm.id_item_relation ISNULL) \n" +
+                "AND measurement_cause_exhibition.idGroup=" + idGroup;
+        Log.e("leo", "dto \n" + qry);
         cursor = db.rawQuery(qry, null);
         List<DtoReportExhibitionMantainedCause> obj = new ArrayList<>();
         DtoReportExhibitionMantainedCause catalogo;
@@ -121,7 +129,7 @@ public class DaoMeasurementCauseExhibition extends DAO {
                 "WHERE\n" +
                 "report_exhibition_mantained_cause.id_report_local=" + idReportLocal + "\n" +
                 "AND report_exhibition_mantained_cause.hash_exhibition='" + hashExhibition + "'";
-        Log.e("exhibition",qry);
+        Log.e("exhibition", qry);
         cursor = db.rawQuery(qry, null);
         DtoReportExhibitionMantainedCause catalogo = new DtoReportExhibitionMantainedCause();
         if (cursor.moveToFirst()) {

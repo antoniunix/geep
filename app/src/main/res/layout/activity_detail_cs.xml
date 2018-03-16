@@ -5,11 +5,10 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout_home"
+        layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
 
-    </include>
 
     <TextView
         android:id="@+id/txtNamePdv"
@@ -21,10 +20,10 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_photo"
-        android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNamePdv">
+        android:layout_below="@+id/txtNamePdv"
+        android:layout_margin="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,6 +32,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@color/colorgrayBackgroundVisit"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
@@ -40,20 +40,24 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:background="@color/colorgrayBackgroundVisit"
+                    android:textAlignment="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@string/oportunity"
-                    />
+                    android:text="@string/oportunity" />
 
                 <TextView
+                    android:background="@color/colorgrayBackgroundVisit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:textAlignment="center"
                     android:text="@string/photo_success" />
 
                 <TextView
+                    android:background="@color/colorgrayBackgroundVisit"
+                    android:textAlignment="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -84,6 +88,7 @@
                     android:textSize="24sp" />
 
                 <TextView
+                    android:drawableLeft="@drawable/icn_reloj"
                     android:id="@+id/txthrsEjecution"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -97,12 +102,12 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:layout_marginTop="16dp"
-        android:layout_margin="4dp"
         android:id="@+id/cv_measurement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cv_photo">
+        android:layout_below="@+id/cv_photo"
+        android:layout_margin="4dp"
+        android:layout_marginTop="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,13 +115,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:textAlignment="center"
                 android:id="@+id/txtMeasurementLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="COLAS" />
+                android:text="COLAS"
+                android:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,12 +138,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/SS" />
+                        android:text="@string/SS"
+                        android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtColaSS"
@@ -164,12 +169,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
-                        android:textAlignment="center"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/SS" />
+                        android:text="@string/SS"
+                        android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtColaMS"
@@ -186,10 +191,10 @@
     <!-- SABORES -->
     <android.support.v7.widget.CardView
         android:id="@+id/cv_flavor"
-        android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cv_measurement">
+        android:layout_below="@+id/cv_measurement"
+        android:layout_margin="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -197,11 +202,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:id="@+id/txtFlavorLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="SABORES" />
 
             <LinearLayout
@@ -217,13 +222,13 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_gravity="center"
-
-                        android:textAlignment="center"
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/SS" />
+                        android:text="@string/SS"
+                        android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/txtColaSSFlavor"
@@ -238,6 +243,7 @@
                     android:layout_weight=".5"
                     android:scaleType="center"
                     android:src="@drawable/icn_jumex" />
+
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -253,19 +259,19 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_gravity="center"
-                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/SS" />
+                        android:text="@string/SS"
+                        android:textAlignment="center" />
 
                     <TextView
-                        android:layout_gravity="center"
                         android:id="@+id/txtColaMSFlavor"
                         style="@style/style_detail"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -294,6 +300,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_centerInParent="true"
                     android:id="@+id/txtAguaLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -332,6 +339,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_centerInParent="true"
                     android:id="@+id/txtGatoradeLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -385,6 +393,7 @@
                     android:id="@+id/txtLiptonLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:text="@string/lipton" />
 
                 <ImageView
@@ -420,6 +429,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_centerInParent="true"
                     android:id="@+id/txtJumexLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
