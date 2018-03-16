@@ -28,6 +28,7 @@ import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.geolocation.ServiceCheck;
 import net.gshp.gepp.model.ModelDetailPdv;
 import net.gshp.gepp.model.ModelMenuReport;
+import net.gshp.gepp.util.Config;
 
 /**
  * Created by leo on 10/03/18.
@@ -36,13 +37,13 @@ import net.gshp.gepp.model.ModelMenuReport;
 public class DetailPdv extends AppCompatActivity implements View.OnClickListener, OnMapReadyCallback {
 
     private DtoBundle dtoBundle;
-    private Button btninit,btncancel;
+    private Button btninit, btncancel;
     private ScrollView scroll;
     private MapView mapView;
     private GoogleMap map;
     private ModelMenuReport modelMenuReport;
     private LinearLayout lyt_scorecard_info;
-    private TextView txtpdvName;
+    private TextView txtpdvName, txtAddress, txt_date,txtNamePdv;
     private ModelDetailPdv model;
     private DtoPdv dtoPdv;
 
@@ -65,11 +66,14 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
     private void init() {
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getString(R.string.app_bundle_name));
         modelMenuReport = new ModelMenuReport(dtoBundle, this);
-        model=new ModelDetailPdv();
-        dtoPdv=model.getPdv(dtoBundle.getIdPDV());
+        model = new ModelDetailPdv();
+        dtoPdv = model.getPdv(dtoBundle.getIdPDV());
         btninit = (Button) findViewById(R.id.btninit);
         btncancel = (Button) findViewById(R.id.btncancel);
         txtpdvName = (TextView) findViewById(R.id.txtpdvName);
+        txtNamePdv = (TextView) findViewById(R.id.txtNamePdv);
+        txtAddress = (TextView) findViewById(R.id.txtAddress);
+        txt_date = (TextView) findViewById(R.id.txt_date);
         btninit.setOnClickListener(this);
         btncancel.setOnClickListener(this);
         mapView = (MapView) findViewById(R.id.map);
@@ -82,7 +86,10 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
-        txtpdvName.setText(dtoPdv.getName());
+        txtpdvName.setText(dtoPdv.getClient());
+        txtNamePdv.setText(dtoPdv.getName());
+        txtAddress.setText(dtoPdv.getAddress());
+        txt_date.setText(Config.formatDate());
     }
 
     @Override
@@ -95,11 +102,11 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
             modelMenuReport.setDtoBundle(dtoBundle);
             startActivity(new Intent(this, MenuReport.class).putExtra(getString(R.string.app_bundle_name), dtoBundle));
             finish();
-        } else if(view.getId()==R.id.lyt_scorecard_info){
-            Log.e("else","l");
+        } else if (view.getId() == R.id.lyt_scorecard_info) {
+            Log.e("else", "l");
             startActivityForResult(new Intent(this, DetailPdvCS.class).putExtra(getString(R.string.app_bundle_name), dtoBundle), 1);
             finish();
-        }else if(view.getId()==R.id.btncancel){
+        } else if (view.getId() == R.id.btncancel) {
             finish();
         }
 

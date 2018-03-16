@@ -313,7 +313,7 @@ Página 6 de 6</string>
     <string name="report_check_wite_button_visible">¡Por favor espere a que aparezca el boton continuar!</string>
     <string name="report_check_exact">Distancia a</string>
     <string name="report_check_without_location">No se pudo obtener coordenada. \\\\nContinuar</string>
-    <string name="SCANN_ALERT">SCANN ALERT</string>
+    <string name="SCANN_ALERT">ALERTAS</string>
     <string name="action_filter">Filtros</string>
     <string name="action_save">Guardar</string>
     <string name="menu_status_scann" >Status</string>

@@ -12,7 +12,7 @@
 
         <ImageView
             android:background="@null"
-            android:src="@drawable/icn_pepsi"
+            android:src="@drawable/logo"
             android:id="@+id/imgLogo"
             android:layout_alignParentStart="true"
             android:minHeight="30dp"

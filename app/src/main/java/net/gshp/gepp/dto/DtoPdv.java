@@ -28,6 +28,16 @@ public class DtoPdv {
     @SerializedName("idRegion")
     private long idRegion;
     private long idClientFormat;
+    private String client;
+
+    public String getClient() {
+        return client;
+    }
+
+    public DtoPdv setClient(String client) {
+        this.client = client;
+        return this;
+    }
 
     public long getIdClientFormat() {
         return idClientFormat;

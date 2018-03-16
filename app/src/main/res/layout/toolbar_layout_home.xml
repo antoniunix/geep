@@ -19,7 +19,7 @@
             android:background="@null"
             android:minHeight="30dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/icn_pepsi" />
+            android:src="@drawable/logo" />
 
 
         <TextView

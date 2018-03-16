@@ -174,10 +174,12 @@ public class DaoPdv extends DAO {
                 "				pdv.extra_field3, \n" +
                 "				pdv.type, \n" +
                 "				pdv.id_region, \n" +
-                "				c_rtm.id_canal \n" +
+                "				c_rtm.id_canal, \n" +
+                "				c_client.value \n" +
                 "				FROM \n" +
                 "				pdv \n" +
                 "				INNER JOIN c_rtm ON pdv.id_rtm = c_rtm.id \n" +
+                "				INNER JOIN c_client ON pdv.id_client = c_client.id \n" +
                 "				WHERE pdv.id=" + idPdv;
         cursor = db.rawQuery(qry, null);
         DtoPdv catalogo;
@@ -199,6 +201,7 @@ public class DaoPdv extends DAO {
             int id_format = cursor.getColumnIndexOrThrow("id_format");
             int type = cursor.getColumnIndexOrThrow("type");
             int id_region = cursor.getColumnIndexOrThrow("id_region");
+            int client = cursor.getColumnIndexOrThrow("value");
             do {
                 catalogo.setId(cursor.getInt(id));
                 catalogo.setIdClient(cursor.getInt(id_client));
@@ -216,6 +219,7 @@ public class DaoPdv extends DAO {
                 catalogo.setIdFormat(cursor.getInt(id_format));
                 catalogo.setType(cursor.getInt(type));
                 catalogo.setIdRegion(cursor.getInt(id_region));
+                catalogo.setClient(cursor.getString(client));
             } while (cursor.moveToNext());
         }
         cursor.close();

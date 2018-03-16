@@ -14,19 +14,16 @@
         android:id="@+id/txtNamePdv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar" />
+        android:layout_below="@id/toolbar"
+        android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-    <TextView
-        android:id="@+id/txtUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNamePdv" />
 
     <TextView
         android:id="@+id/txtInfoLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtUser"
+        android:layout_below="@+id/txtNamePdv"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:text="@string/sotreData" />
 
     <LinearLayout
@@ -80,13 +77,14 @@
                 android:layout_alignParentStart="true" />
 
             <LinearLayout
-                android:padding="@dimen/activity_vertical_margin_middle"
                 android:id="@+id/lyt_scorecard_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/map"
                 android:background="@color/colorStatusGreen"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_vertical_margin_middle"
+                android:paddingLeft="@dimen/activity_vertical_margin">
 
                 <TextView
                     android:id="@+id/txtpdvName"
@@ -120,13 +118,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lyt_scorecard_info"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:text="@string/address" />
 
             <TextView
                 android:id="@+id/txtAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtAddressLabel" />
+                android:layout_below="@id/txtAddressLabel"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
         </RelativeLayout>
 

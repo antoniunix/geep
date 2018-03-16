@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.gshp.gepp.R;
@@ -21,6 +22,7 @@ import net.gshp.gepp.dto.DtoReportScannAlert;
 import net.gshp.gepp.listener.DismissDialogStatusScann;
 import net.gshp.gepp.listener.OnItemClickListener;
 import net.gshp.gepp.model.ModelScannAlert;
+import net.gshp.gepp.util.Config;
 
 import java.util.List;
 
@@ -38,7 +40,8 @@ public class ScanAlert extends AppCompatActivity implements OnItemClickListener,
     private ModelScannAlert modelScannAlert;
     private DtoBundle dtoBundle;
     private RecyclerView.Adapter adapter;
-    private ImageView action_filter, action_save;
+    private ImageView action_save;
+    private TextView txt_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +57,20 @@ public class ScanAlert extends AppCompatActivity implements OnItemClickListener,
 
     private void init() {
         context = this;
-        action_filter = (ImageView) findViewById(R.id.action_filter);
         action_save = (ImageView) findViewById(R.id.action_save);
+        txt_date = (TextView) findViewById(R.id.txt_date);
         action_save.setOnClickListener(this);
-        action_filter.setOnClickListener(this);
         dtoBundle = (DtoBundle) getIntent().getExtras().get(getString(R.string.app_bundle_name));
         modelScannAlert = new ModelScannAlert(dtoBundle);
         layoutManager = new LinearLayoutManager(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txt_date.setText(Config.formatDate());
     }
 
     @Override
@@ -78,13 +86,7 @@ public class ScanAlert extends AppCompatActivity implements OnItemClickListener,
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_filter) {
-            FragmentManager fm = getSupportFragmentManager();
-            DialogHistoricScanAlert dialog = new DialogHistoricScanAlert();
-            dialog.setIdPdv(dtoBundle.getIdPDV());
-            dialog.show(fm, "historic");
-            return true;
-        } else if (id == R.id.action_save) {
+        if (id == R.id.action_save) {
             int status;
             if ((status = modelScannAlert.saveReport()) != -1) {
                 Toast.makeText(this, "debe completar la medición", Toast.LENGTH_SHORT).show();
