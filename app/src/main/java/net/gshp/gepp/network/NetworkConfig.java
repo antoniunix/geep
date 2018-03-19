@@ -46,7 +46,7 @@ public class NetworkConfig {
         NetworkTask Ntask = new NetworkTask(handler).setMode(NetworkTask.TaskMode.POST)
                 .setTag(tag).setWithOutNameValuePair(true).setBodyText(bodyText).setParams(params).setGzip(true);
         if (headers != null) {
-            headers.put(context.getString(R.string.network_header_token), SharePreferenceCustom.read(R.string.app_share_preference_name,R.string.app_share_preference_toke_webservices,""));
+            headers.put(context.getString(R.string.network_header_token),mSharedPreferences.getString(context.getString(R.string.app_share_preference_toke_webservices),""));
             Ntask.setCustomHeaders(headers);
         }
         APINetwork.taskManager.addTask(Ntask);

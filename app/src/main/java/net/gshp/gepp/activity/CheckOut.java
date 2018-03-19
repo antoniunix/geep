@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import net.gshp.gepp.R;
 import net.gshp.gepp.dto.DtoBundle;
 import net.gshp.gepp.model.ModelCheckOut;
+import net.gshp.gepp.model.ModelSend;
 import net.gshp.gepp.util.ChangeFontStyle;
 
 /**
@@ -82,8 +83,9 @@ public class CheckOut extends AppCompatActivity implements OnMapReadyCallback {
 
     public void onClickNext(View v) {
         model.stopGeo();
-        startActivity(new Intent(this,Visit.class));
+        startActivity(new Intent(this, Visit.class));
         setResult(RESULT_OK, null);
+        new ModelSend().start();
         finish();
     }
 
@@ -93,8 +95,9 @@ public class CheckOut extends AppCompatActivity implements OnMapReadyCallback {
             Snackbar.make(findViewById(R.id.activity_check_out), getString(R.string.report_check_wite_button_visible), Snackbar.LENGTH_LONG).show();
         } else {
             model.stopGeo();
-            startActivity(new Intent(this,Visit.class));
+            startActivity(new Intent(this, Visit.class));
             setResult(RESULT_OK, null);
+            new ModelSend().start();
             finish();
         }
     }
