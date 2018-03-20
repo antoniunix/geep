@@ -127,13 +127,14 @@ public class NewExhibition extends AppCompatActivity implements AdapterView.OnIt
                     setSend(0);
             dtoDetail.setIdReportLocal(dtoBundle.getIdReportLocal()).
                     setHashExhibition(hash).
-                    setIdExhibitionGroup(3).
                     setIdManufacturer(modelNewExhibition.getItemPositionManufacturer(spn_manufacturer.getSelectedItemPosition()).getIdItemRelation()).
                     setIdCategory(modelNewExhibition.getItemPositionCategory(spn_category.getSelectedItemPosition()).getIdItemRelation()).
                     setIdFamily(modelNewExhibition.getItemPositionFamily(spn_family.getSelectedItemPosition()).getIdItemRelation()).
                     setIdSubFamily(modelNewExhibition.getItemPositionSubFamily(spn_subfamily.getSelectedItemPosition()).getIdItemRelation()).
                     setType(modelNewExhibition.getItemPositionType(spn_type.getSelectedItemPosition()).getIdItemRelation()).
                     setLocation(modelNewExhibition.getItemPositionLocation(spn_location.getSelectedItemPosition()).getIdItemRelation()).
+                    setIdExhibitionGroup(modelNewExhibition.getItemPositionGroup(spn_group.getSelectedItemPosition()).getIdItemRelation()).
+                    setIdDepartment(modelNewExhibition.getItemPositionDepartament(spn_departament.getSelectedItemPosition()).getIdItemRelation()).
                     setPath(path).
                     setHash(Crypto.MD5(System.currentTimeMillis() + " " + new Random().nextInt())).
                     setSend(0).

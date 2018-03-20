@@ -456,6 +456,7 @@ public class Tables {
             "id_subfamily INTEGER," +
             "type INTEGER," +
             "location INTEGER," +
+            "iddepartament INTEGER,"+
             "path TEXT," +
             "hash TEXT," +
             "send INTEGER)";

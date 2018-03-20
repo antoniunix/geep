@@ -91,6 +91,10 @@ public class RVMenuReport extends RecyclerView.Adapter<RVMenuReport.ViewHolder> 
                     holder.imgModul.setImageResource(R.drawable.icn_salir2);
                 }
                 break;
+            case Config.DATOSVOLUMEN:
+                holder.txtModul.setText("DATOS DE VOLUMEN");
+                holder.imgModul.setImageResource(R.drawable.icn_vdtos);
+                break;
         }
     }
 

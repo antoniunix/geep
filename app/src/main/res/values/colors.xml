@@ -48,5 +48,10 @@
     <color name="colorShapeButtonFinish">#FF0000</color>
     <color name="colorShapeButtonInit">#FF0000</color>
     <color name="colorTextButton">#FFFFFF</color>
+    <color name="blue_head">#4187CD</color>
+    <color name="green_head">#BEBE51</color>
+    <color name="orange_head">#FC990A</color>
+    <color name="pink_head">#F03887</color>
+    <color name="red_head">#FF0000</color>
 
 </resources>

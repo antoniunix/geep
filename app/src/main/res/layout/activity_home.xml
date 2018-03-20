@@ -15,7 +15,6 @@
     </include>
 
 
-
     <RelativeLayout
         android:id="@+id/rly_person"
         android:layout_width="match_parent"
@@ -287,12 +286,604 @@
                 android:layout_below="@id/tbl_main"
                 android:text="TIENDAS" />
 
+            <LinearLayout
+                android:padding="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtLabelStore"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:padding="0dp"
+                    android:id="@+id/lytStore"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+                    <!--Supérior -->
+                    <android.support.v7.widget.CardView
+                        android:padding="0dp"
+                        android:id="@+id/crdSuper"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start">
+
+                            <TextView
+                                android:textColor="@color/color_white"
+                                android:id="@+id/txtSuperior"
+                                android:background="@color/blue_head"
+                                android:text="@string/superior"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginBottom="16dp"
+                                android:textAlignment="center"
+                                android:textSize="12sp" />
+
+
+                            <TextView
+                                android:id="@+id/txtSuperiorStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/tiendas"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/txtNumSuperiorStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp" />
+
+                            <TextView
+                                android:textColor="@color/blue_head"
+                                android:gravity="end"
+                                android:id="@+id/txtPorcentSuperiorStore"
+                                style="@style/style_txt_porcent_home"
+                                android:layout_alignEnd="@id/txtNumSuperiorStore"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="16dp" />
+
+
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <!--Normal -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdNormal"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start">
+
+                            <TextView
+                                android:textColor="@color/color_white"
+                                android:id="@+id/txtNormal"
+                                android:text="@string/normal"
+                                android:background="@color/green_head"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                               android:layout_alignParentStart="true"
+                                android:layout_marginBottom="16dp"
+                                android:textAlignment="center"
+                                android:textSize="12sp" />
+
+
+                            <TextView
+                                android:id="@+id/txtNormalStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/tiendas"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/txtNumNormalStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp" />
+
+                            <TextView
+                                android:textColor="@color/green_head"
+                                android:gravity="end"
+                                android:id="@+id/txtPorcentNormalStore"
+                                style="@style/style_txt_porcent_home"
+                                android:layout_alignEnd="@id/txtNumNormalStore"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="16dp" />
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                    <!--Basica -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdBasica"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start">
+
+                            <TextView
+                                android:textColor="@color/color_white"
+                                android:background="@color/orange_head"
+                                android:id="@+id/txtBasica"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginBottom="16dp"
+                                android:textAlignment="center"
+                                android:textSize="12sp"
+                                android:text="@string/basica"
+                                 />
+
+
+                            <TextView
+                                android:id="@+id/txtBasicaStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/tiendas"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/txtNumBasicaStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp" />
+
+                            <TextView
+                                android:textColor="@color/orange_head"
+                                android:gravity="end"
+                                android:id="@+id/txtPorcentBasicaStore"
+                                style="@style/style_txt_porcent_home"
+                                android:layout_alignEnd="@id/txtNumBasicaStore"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="16dp" />
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                    <!--Critica-->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdCritica"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start">
+
+                            <TextView
+                                android:textColor="@color/color_white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginBottom="16dp"
+                                android:textAlignment="center"
+                                android:textSize="12sp"
+                                android:background="@color/pink_head"
+                                android:id="@+id/txtCritica"
+                                android:text="@string/crtitica"
+                                 />
+
+
+                            <TextView
+                                android:id="@+id/txtCriticaStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/tiendas"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/txtNumCriticaStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp" />
+
+                            <TextView
+                                android:textColor="@color/pink_head"
+                                android:gravity="end"
+                                android:id="@+id/txtPorcentCriticaStore"
+                                style="@style/style_txt_porcent_home"
+                                android:layout_alignEnd="@id/txtNumCriticaStore"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="16dp" />
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                    <!--Sin medicion-->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdSinMedicion"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start">
+
+                            <TextView
+                                android:textColor="@color/color_white"
+                                android:background="@color/red_head"
+                                android:id="@+id/txtSinMedicion"
+                                android:text="@string/sinmedicion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginBottom="16dp"
+                                android:textAlignment="center"
+                                android:textSize="12sp" />
+
+
+                            <TextView
+                                android:id="@+id/txtSinMedicionStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/tiendas"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/txtNumSinMedicionStore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="16dp" />
+
+                            <TextView
+                                android:textColor="@color/red_head"
+                                android:gravity="end"
+                                android:id="@+id/txtPorcentSinMedicionStore"
+                                style="@style/style_txt_porcent_home"
+                                android:layout_alignEnd="@id/txtNumSinMedicionStore"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="16dp" />
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="0dp"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2">
+
+                    <!-- COLA -->
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/crdColas"
+                            style="@style/style_cardview_home_store"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="4dp"
+                            app:cardMaxElevation="4dp"
+                            app:cardPreventCornerOverlap="true">
+
+                                <LinearLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/imgPepsi"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:src="@drawable/icn_pepsi" />
+
+                                    <TextView
+
+                                        style="@style/style_txt_category"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2"
+                                        android:text="@string/colas"
+                                        android:gravity="center" />
+
+                                    <TextView
+                                        style="@style/style_txt_category"
+                                        android:textColor="@color/color_white"
+                                        android:gravity="center"
+                                        android:id="@+id/txtcolas"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3" />
+
+                                </LinearLayout>
 
 
 
+
+
+                        </android.support.v7.widget.CardView>
+
+                    <!-- sabores -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdSabores"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imgSabores"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/icn_mirinda" />
+
+                            <TextView
+                                android:id="@+id/txtsaboreslabel"
+                                style="@style/style_txt_category"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:text="@string/sabores"
+                                android:gravity="center" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:textColor="@color/color_white"
+                                android:gravity="center"
+                                android:id="@+id/txtsabores"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <!-- agua -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdAgua"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imgAgua"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/icn_epura" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:text="@string/agua"
+                                android:gravity="center" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:textColor="@color/color_white"
+                                android:gravity="center"
+                                android:id="@+id/txtagua"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <!-- gatorade -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdgatorade"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imggatorade"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/gatorade" />
+
+                            <TextView
+                                android:id="@+id/txtGatoradeLabel"
+                                style="@style/style_txt_category"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:text="@string/gatorade"
+                                android:gravity="center" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:textColor="@color/color_white"
+                                android:gravity="center"
+                                android:id="@+id/txgatorade"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <!-- lipton -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdlipton"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imglipton"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/icn_lipton" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:text="@string/lipton"
+                                android:gravity="center" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:textColor="@color/color_white"
+                                android:gravity="center"
+                                android:id="@+id/txtlipton"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <!-- jumex -->
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/crdjumex"
+                        style="@style/style_cardview_home_store"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp"
+                        app:cardMaxElevation="4dp"
+                        app:cardPreventCornerOverlap="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imgjumex"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/icn_jumex" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:text="@string/jumex"
+                                android:gravity="center" />
+
+                            <TextView
+                                style="@style/style_txt_category"
+                                android:textColor="@color/color_white"
+                                android:gravity="center"
+                                android:id="@+id/txtjumex"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
         </RelativeLayout>
-
-
     </ScrollView>
 
 </RelativeLayout>

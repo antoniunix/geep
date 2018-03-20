@@ -9,9 +9,14 @@ import com.google.gson.Gson;
 import net.gshp.APINetwork.NetworkTask;
 import net.gshp.gepp.R;
 import net.gshp.gepp.contextApp.ContextApp;
+import net.gshp.gepp.dao.DaoDownloadDetail;
 import net.gshp.gepp.dao.DaoEARespuesta;
+import net.gshp.gepp.dao.DaoMeasurementDownloadSku;
+import net.gshp.gepp.dao.DaoMessageView;
 import net.gshp.gepp.dao.DaoReport;
+import net.gshp.gepp.dto.DtoDownLoadDetail;
 import net.gshp.gepp.dto.DtoEARespuesta;
+import net.gshp.gepp.dto.DtoMessageView;
 import net.gshp.gepp.dto.DtoReportToSend;
 import net.gshp.gepp.network.NetworkConfig;
 
@@ -72,10 +77,14 @@ public class ModelSend {
     private boolean REPORT_TO_SEND = false;
 
     private DaoReport daoReportReport;
+    private DaoDownloadDetail daoDownloadDetail;
     private DaoEARespuesta daoeaRespuesta;
+    private DaoMessageView daoMessageView;
 
 
     private List<DtoReportToSend> lstReports;
+    private List<DtoDownLoadDetail> lstDownloadDetail;
+    private List<DtoMessageView> lstMessageView;
 
     private List<List<DtoEARespuesta>> respuestas;
     private List<DtoEARespuesta> lstDtoReportRespuestasFotos;
@@ -87,6 +96,8 @@ public class ModelSend {
 
         daoReportReport = new DaoReport();
         daoeaRespuesta = new DaoEARespuesta();
+        daoMessageView = new DaoMessageView();
+        daoDownloadDetail = new DaoDownloadDetail();
     }
 
     public void start() {
@@ -123,8 +134,11 @@ public class ModelSend {
     private void sendSubReportes() {
         Log.e("send", "sendsubreportes");
         respuestas = daoeaRespuesta.selectToSend();
+        lstDownloadDetail = daoDownloadDetail.selectToSend();
+        lstMessageView = daoMessageView.selectToSend();
 
-        SubReportAEnviar = respuestas.size();
+
+        SubReportAEnviar = respuestas.size()+lstDownloadDetail.size()+lstMessageView.size();
 
         if (SubReportAEnviar != 0) {
              /*
@@ -140,6 +154,14 @@ public class ModelSend {
                         Map<String, String> header = new HashMap<>();
                         header.put(ContextApp.context.getString(R.string.network_header_name_application_json), ContextApp.context.getString(R.string.network_header_application_json));
                         networkConfig.POST("multireport/insertnt/poll/1", json, "rsaa" + +respuestas.get(i).get(0).getIdReporteLocal(), header);
+                    }
+
+                    for (int i = 0; i < lstMessageView.size(); i++) {
+                    String json= new Gson().toJson(lstMessageView.get(i));
+                        Log.e("Nestle", "Message" + json);
+                        Map<String, String> header = new HashMap<>();
+                        header.put(ContextApp.context.getString(R.string.network_header_name_application_json), ContextApp.context.getString(R.string.network_header_application_json));
+                        networkConfig.POST("multireport/insertnt/rcmessage/1", json, "rsab" + +lstMessageView.get(i).getId(), header);
                     }
                 }
 
@@ -242,6 +264,7 @@ public class ModelSend {
             if (completedTask.getTag().contains("rprt")) {
                 REPORTESENVIADOS++;
             } else if (completedTask.getTag().contains("rsaa")
+                    || completedTask.getTag().contains("rsab")
                     )
 
                 SubReportesEnviados++;
@@ -271,6 +294,8 @@ public class ModelSend {
 
                 } else if (completedTask.getTag().contains("rsaa")) {
                     daoeaRespuesta.updateEnviado(completedTask.getTag().substring(4));
+                }else if (completedTask.getTag().contains("rsab")) {
+                    daoMessageView.Update(completedTask.getTag().substring(4));
                 }
                 //fotos
                 else if (completedTask.getTag().contains("rfaa")) {

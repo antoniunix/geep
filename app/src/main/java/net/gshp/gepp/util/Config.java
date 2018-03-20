@@ -37,6 +37,7 @@ import java.util.TimeZone;
 public class Config {
 
     public static final int CHECK_OUT = 1002;
+    public static final int DATOSVOLUMEN = 9999;
     public static final int ENCUESTA = 7;
 
     public static final int MODULE_TYPE_CHECKIN = 1;

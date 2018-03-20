@@ -44,6 +44,7 @@ public class DaoReportExhibitionDetail extends DAO {
             cv.put("path", obj.getPath());
             cv.put("hash", obj.getHash());
             cv.put("family", obj.getFamily());
+            cv.put("iddepartament",obj.getIdDepartment());
             cv.put("send", 0);
             resp = (int) db.insert(TABLE_NAME, null, cv);
             db.setTransactionSuccessful();

@@ -2,6 +2,7 @@ package net.gshp.gepp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -95,17 +96,28 @@ public class DetailPdv extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btninit) {
-            modelMenuReport.addReport();
-            startService(new Intent(ContextApp.context, ServiceCheck.class).
-                    putExtra(getString(R.string.app_bundle_name), dtoBundle).
-                    putExtra("typeCheck", getResources().getInteger(R.integer.type_check_in)));
-            modelMenuReport.setDtoBundle(dtoBundle);
-            startActivity(new Intent(this, MenuReport.class).putExtra(getString(R.string.app_bundle_name), dtoBundle));
-            finish();
+            if (!Config.isDateAutomatic()) {
+                Snackbar.make(findViewById(R.id.rlyMain), "DEBE PONER LA HORA EN AUTOMÁTICO", Snackbar.LENGTH_SHORT).show();
+            } else if (!Config.isDateAutomatic1()) {
+                Snackbar.make(findViewById(R.id.rlyMain), "DEBE PONER ZONA HORARIA EN AUTOMATICO", Snackbar.LENGTH_SHORT).show();
+            } else if (Config.isMockLocation()) {
+                Snackbar.make(findViewById(R.id.rlyMain), "DEBE DESACTIVAR COORDENADAS FALSAS", Snackbar.LENGTH_SHORT).show();
+            } else if (!Config.isGPSenabled()) {
+                Snackbar.make(findViewById(R.id.rlyMain), "ACTIVE GPS", Snackbar.LENGTH_SHORT).show();
+            }else {
+                modelMenuReport.addReport();
+                startService(new Intent(ContextApp.context, ServiceCheck.class).
+                        putExtra(getString(R.string.app_bundle_name), dtoBundle).
+                        putExtra("typeCheck", getResources().getInteger(R.integer.type_check_in)));
+                modelMenuReport.setDtoBundle(dtoBundle);
+                startActivity(new Intent(this, MenuReport.class).putExtra(getString(R.string.app_bundle_name), dtoBundle));
+                finish();
+            }
+
         } else if (view.getId() == R.id.lyt_scorecard_info) {
             Log.e("else", "l");
             startActivityForResult(new Intent(this, DetailPdvCS.class).putExtra(getString(R.string.app_bundle_name), dtoBundle), 1);
-            finish();
+
         } else if (view.getId() == R.id.btncancel) {
             finish();
         }

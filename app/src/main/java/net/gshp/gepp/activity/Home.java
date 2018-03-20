@@ -3,13 +3,11 @@ package net.gshp.gepp.activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,15 +37,18 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener, 
             txtNumWeekEfectividad, txtAcumulatedWeekEfectividad, txtAcumulatedAnnualEfectividad, txtCosto;
     private TextView txtPorcentPerctStore, txtNumPerctStore, txtPorcentSuperiorStore, txtNumSuperiorStore, txtPorcentRegularStore, txtNumRegularStore, txtPorcentCriticaStore, txtNumCriticaStore,
             txtPorcentSinMedicionStore, txtNumSinMedicionStore;
+    private TextView txtNormal, txtNormalStore, txtPorcentNormalStore, txtNumNormalStore;
     private ImageView imgStatusPerfect, imgStatusSuperior, imgStatusRegular, imgStatusCritica, imgStatusSinMedicion;
     private TextView txt_head_efectividad, txt_head_acumulado, txtLabelResume, txtPerfect, txtPerctStore, txtSuperior, txtRegular,
             txtCritica, txtSinMedicion, txt_head_costo, txt_head_acumulado1, txtSuperiorStore, txtRegularStore, txtCriticaStore, txtSinMedicionStore;
     private ImageButton btnHelp, btnAccount, btnSynck;
+    private TextView txtBasica, txtNumBasicaStore, txtPorcentBasicaStor, txtsaboresLable, txtGatoradeLabel;
     private BottomNavigationView bottomNavigationView;
     private DtoCoopGeneral dtoCoopGeneral;
     private ModelHome modelHome;
     private SharedPreferences preferences;
     private ModelAHBottomNavigation modelAHBottomNavigation;
+    private TextView txtcolas, txtsabores, txtagua, txgatorade, txtlipton, txtJumex;
     private DtoUserInfo dtoUserInfo;
 
     private void init() {
@@ -69,6 +70,42 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener, 
         btnHelp = (ImageButton) findViewById(R.id.btnHelp);
         btnAccount = (ImageButton) findViewById(R.id.btnAccount);
         btnSynck = (ImageButton) findViewById(R.id.btnSynck);
+        txtSuperior = (TextView) findViewById(R.id.txtSuperior);
+        txtSuperiorStore = (TextView) findViewById(R.id.txtSuperiorStore);
+        txtPorcentSuperiorStore = (TextView) findViewById(R.id.txtPorcentSuperiorStore);
+        txtNumSuperiorStore = (TextView) findViewById(R.id.txtNumSuperiorStore);
+        txtNormal = (TextView) findViewById(R.id.txtNormal);
+        txtNormalStore = (TextView) findViewById(R.id.txtNormalStore);
+        txtPorcentNormalStore = (TextView) findViewById(R.id.txtPorcentNormalStore);
+        txtNumNormalStore = (TextView) findViewById(R.id.txtNumNormalStore);
+        txtsaboresLable = (TextView) findViewById(R.id.txtsaboreslabel);
+        txtGatoradeLabel = (TextView) findViewById(R.id.txtGatoradeLabel);
+        txtBasica = (TextView) findViewById(R.id.txtBasica);
+        txtNumBasicaStore = (TextView) findViewById(R.id.txtNumBasicaStore);
+        txtPorcentBasicaStor = (TextView) findViewById(R.id.txtPorcentBasicaStore);
+        txtCritica = (TextView) findViewById(R.id.txtCritica);
+        txtCriticaStore = (TextView) findViewById(R.id.txtCriticaStore);
+        txtNumCriticaStore = (TextView) findViewById(R.id.txtNumCriticaStore);
+        txtPorcentCriticaStore = (TextView) findViewById(R.id.txtPorcentCriticaStore);
+        txtSinMedicion = (TextView) findViewById(R.id.txtSinMedicion);
+        txtSinMedicionStore = (TextView) findViewById(R.id.txtSinMedicionStore);
+        txtNumSinMedicionStore = (TextView) findViewById(R.id.txtNumSinMedicionStore);
+        txtPorcentSinMedicionStore = (TextView) findViewById(R.id.txtPorcentSinMedicionStore);
+        txtsabores = (TextView) findViewById(R.id.txtsabores);
+        txtsabores.setSelected(true);
+        txtcolas = (TextView) findViewById(R.id.txtcolas);
+        txtcolas.setSelected(true);
+        txtagua = (TextView) findViewById(R.id.txtagua);
+        txtagua.setSelected(true);
+        txgatorade = (TextView) findViewById(R.id.txgatorade);
+        txgatorade.setSelected(true);
+        txtlipton = (TextView) findViewById(R.id.txtlipton);
+        txtlipton.setSelected(true);
+        txtJumex = (TextView) findViewById(R.id.txtjumex);
+        txtJumex.setSelected(true);
+        txtGatoradeLabel.setSelected(true);
+        txtsaboresLable.setSelected(true);
+
 
         btnHelp.setOnClickListener(this);
         btnAccount.setOnClickListener(this);
@@ -93,6 +130,29 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener, 
         txtAcumulatedWeekEfectividad.setText(dtoUserInfo.getEfectividad_porcentaje_semana() + "%");
         txtPorcentWeek.setText(dtoUserInfo.getEfectividad_porcentaje_semana() + "%");
         txtAcumulatedAnnual.setText(dtoUserInfo.getFoto_exito() + "%");
+        txtNumSuperiorStore.setText(dtoUserInfo.getSuperior_tiendas() == null ? "--" : dtoUserInfo.getSuperior_tiendas());
+        txtPorcentSuperiorStore.setText(dtoUserInfo.getSuperior_porcentaje() == null ? "--" : dtoUserInfo.getSuperior_porcentaje() + "%");
+        txtNumNormalStore.setText(dtoUserInfo.getNormal_tiendas() == null ? "--" : dtoUserInfo.getNormal_tiendas());
+        txtPorcentNormalStore.setText(dtoUserInfo.getNormal_porcentaje() == null ? "--" : dtoUserInfo.getNormal_porcentaje() + "%");
+        txtNumBasicaStore.setText(dtoUserInfo.getBasica_tiendas() == null ? "--" : dtoUserInfo.getBasica_tiendas());
+        txtPorcentBasicaStor.setText(dtoUserInfo.getBasica_porcentaje() == null ? "--" : dtoUserInfo.getBasica_porcentaje() + "%");
+        txtNumCriticaStore.setText(dtoUserInfo.getCritica_tiendas() == null ? "--" : dtoUserInfo.getCritica_tiendas());
+        txtPorcentCriticaStore.setText(dtoUserInfo.getCritica_porcentaje() == null ? "--" : dtoUserInfo.getCritica_porcentaje() + "%");
+        txtNumSinMedicionStore.setText(dtoUserInfo.getSinmedicion_tienda() == null ? "--" : dtoUserInfo.getSinmedicion_tienda());
+        txtPorcentSinMedicionStore.setText(dtoUserInfo.getSinmedicion_porcentaje() == null ? "--" : dtoUserInfo.getSinmedicion_porcentaje() + "%");
+        txtcolas.setText(dtoUserInfo.getColas());
+        txtcolas.setBackgroundColor(Color.parseColor(dtoUserInfo.getColas_color()));
+        txtsabores.setText(dtoUserInfo.getSabores());
+        txtsabores.setBackgroundColor(Color.parseColor(dtoUserInfo.getSabores_color()));
+        txtagua.setText(dtoUserInfo.getAgua());
+        txtagua.setBackgroundColor(Color.parseColor(dtoUserInfo.getAgua_color()));
+        txgatorade.setText(dtoUserInfo.getGatorade());
+        txgatorade.setBackgroundColor(Color.parseColor(dtoUserInfo.getGatorade_color()));
+        txtlipton.setText(dtoUserInfo.getLipton());
+        txtlipton.setBackgroundColor(Color.parseColor(dtoUserInfo.getLipton_color()));
+        txtJumex.setText(dtoUserInfo.getJumex());
+        txtJumex.setBackgroundColor(Color.parseColor(dtoUserInfo.getJumex_color()));
+
     }
 
     @Override
@@ -145,7 +205,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener, 
 
     @Override
     protected void onResume() {
-         super.onResume();
+        super.onResume();
         modelAHBottomNavigation.onResume();
         txt_date.setText(Config.formatDate());
 

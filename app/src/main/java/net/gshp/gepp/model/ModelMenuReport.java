@@ -55,6 +55,10 @@ public class ModelMenuReport {
         lstDtoModules = daoModule.selectModule(dtoPdvPdv);
         DtoMeasurementModule dtoMeasurementModule = new DtoMeasurementModule();
         dtoMeasurementModule = new DtoMeasurementModule();
+        dtoMeasurementModule.setIdItemRelation(ContextApp.context.getResources().getInteger(R.integer.VOLUMEN_DATOS));
+        dtoMeasurementModule.setValue("Datos de Volumen");
+        lstDtoModules.add(dtoMeasurementModule);
+        dtoMeasurementModule = new DtoMeasurementModule();
         dtoMeasurementModule.setIdItemRelation(ContextApp.context.getResources().getInteger(R.integer.PRE_CHECK_OUT));
         dtoMeasurementModule.setValue("Fin de la Jornada");
         lstDtoModules.add(dtoMeasurementModule);
@@ -149,6 +153,9 @@ public class ModelMenuReport {
         }
         if (isReportPoll() == context.getResources().getInteger(R.integer.statusModuleReportIncompleteForced)) {
             listMissingReport = listMissingReport.concat("ENCUESTAS FORZOSAS\n");
+        }
+        if(isReportExhibition()==context.getResources().getInteger(R.integer.statusModuleReportIncomplete)) {
+            listMissingReport = listMissingReport.concat("Foto de Exito\n");
         }
 
         if (listMissingReport.length() > 0) {

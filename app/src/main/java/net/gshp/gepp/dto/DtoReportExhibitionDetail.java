@@ -1,5 +1,7 @@
 package net.gshp.gepp.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by leo on 13/03/18.
  */
@@ -9,12 +11,14 @@ public class DtoReportExhibitionDetail {
     private int id;
     private long idReportLocal;
     private String hashExhibition;
+    @SerializedName("idGroup")
     private int idExhibitionGroup;
     private int idManufacturer;
     private int idCategory;
     private int idFamily;
     private int idSubFamily;
     private int type;
+    @SerializedName("idLocation")
     private int location;
     private String path;
     private String hash;
@@ -22,6 +26,16 @@ public class DtoReportExhibitionDetail {
     private int idReport;
     private int idPdv;
     private String family;
+    private int idDepartment;
+
+    public int getIdDepartment() {
+        return idDepartment;
+    }
+
+    public DtoReportExhibitionDetail setIdDepartment(int idDepartment) {
+        this.idDepartment = idDepartment;
+        return this;
+    }
 
     public String getFamily() {
         return family;

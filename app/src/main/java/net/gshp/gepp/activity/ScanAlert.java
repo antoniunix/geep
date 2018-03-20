@@ -18,6 +18,7 @@ import net.gshp.gepp.R;
 import net.gshp.gepp.dialog.DialogHistoricScanAlert;
 import net.gshp.gepp.dialog.DialogStatusScannAlert;
 import net.gshp.gepp.dto.DtoBundle;
+import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.dto.DtoReportScannAlert;
 import net.gshp.gepp.listener.DismissDialogStatusScann;
 import net.gshp.gepp.listener.OnItemClickListener;
@@ -32,7 +33,7 @@ import java.util.List;
 
 public class ScanAlert extends AppCompatActivity implements OnItemClickListener, DismissDialogStatusScann, View.OnClickListener {
 
-
+    private DtoPdv dtoPdv;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<DtoReportScannAlert> lst;

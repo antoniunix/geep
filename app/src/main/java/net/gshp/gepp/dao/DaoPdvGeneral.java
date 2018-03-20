@@ -173,5 +173,32 @@ public class DaoPdvGeneral extends DAO {
 
     }
 
+    public DtoPdvInfoGeneral select(long idPdv){
+        db= helper.getReadableDatabase();
+        String qry ="SELECT * FROM "+TABLE_NAME+" WHERE id_pdv="+idPdv;
+        cursor= db.rawQuery(qry,null);
+        DtoPdvInfoGeneral catalogo= new DtoPdvInfoGeneral();
+        if(cursor.moveToFirst()){
+            do {
+                catalogo.setTotal_producto(cursor.getString(cursor.getColumnIndexOrThrow(TOTALPRODUCTO)));
+                catalogo.setTotal_producto_bandera(cursor.getInt(cursor.getColumnIndexOrThrow(TOTALBANDERA)));
+                catalogo.setColas_porcentaje(cursor.getString(cursor.getColumnIndexOrThrow(COLASPORCENTAJE)));
+                catalogo.setColas_bandera(cursor.getInt(cursor.getColumnIndexOrThrow(COLASBANDERA)));
+                catalogo.setSabores_porcentaje(cursor.getString(cursor.getColumnIndexOrThrow(SABORESPORCENTAJE)));
+                catalogo.setSabores_bandera(cursor.getInt(cursor.getColumnIndexOrThrow(SABORESBANDERA)));
+                catalogo.setAgua_porcentaje(cursor.getString(cursor.getColumnIndexOrThrow(AGUAPORCENTAJE)));
+                catalogo.setAgua_bandera(cursor.getInt(cursor.getColumnIndexOrThrow(AGUABANDERA)));
+                catalogo.setGatorade_bandera(cursor.getInt(cursor.getColumnIndexOrThrow(GATORADEBANDERA)));
+                catalogo.setGatorade_porcentaje(cursor.getString(cursor.getColumnIndexOrThrow(GATORADEPORCENTAJE)));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return catalogo;
+        }
 
-}
+    }
+
+
+

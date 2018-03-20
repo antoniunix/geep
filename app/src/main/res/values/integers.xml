@@ -29,4 +29,5 @@
     <integer name="type_check_out">2</integer>
     <integer name="SIZE_WIDTH_PHOTO">800</integer>
     <integer name="SIZE_HEIGHT_PHOTO">600</integer>
+    <integer name="VOLUMEN_DATOS">9999</integer>
 </resources>

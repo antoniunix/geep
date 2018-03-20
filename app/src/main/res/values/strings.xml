@@ -345,4 +345,17 @@ Página 6 de 6</string>
     <string name="gatorade">GATORADE</string>
     <string name="lipton">LIPTON</string>
     <string name="jumex">JUMEX</string>
+    <string name="superior">SUPERIOR</string>
+    <string name="tiendas">TIENDAS</string>
+    <string name="normal">NORMAL</string>
+    <string name="sinmedicion">SIN MEDICIÓN</string>
+    <string name="crtitica">CRÍTICA</string>
+    <string name="basica">BÁSICA</string>
+    <string name="colas">COLAS:</string>
+    <string name="sabores">SABORES:</string>
+    <string name="agua">AGUA:</string>
+    <string name="neg">NEG.</string>
+    <string name="hrstrabajada">HRSTRABAJADAS</string>
+    <string name="total_producto">TOTAL PRODUCTO</string>
+    <string name="agrupadores">AGRUPADORES</string>
 </resources>

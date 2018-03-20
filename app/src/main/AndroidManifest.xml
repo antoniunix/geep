@@ -136,6 +136,9 @@
         <activity
             android:name=".activity.NewExhibition"
             android:screenOrientation="nosensor" />
+        <activity
+            android:name=".activity.ReportDataVolumen"
+            android:screenOrientation="nosensor" />
 
         <activity
             android:name=".activity.DetailPdvCS"

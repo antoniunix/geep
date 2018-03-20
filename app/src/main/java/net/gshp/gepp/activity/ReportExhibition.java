@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.gshp.gepp.R;
@@ -40,6 +41,7 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
     private AdapterExhibicion adapterExhibicion;
     private ModelExhibitions modelExhibitions;
     private Button btn_add_exhibition, btn_save_exhibition;
+    private TextView txt_date;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
         EventBus.getDefault().register(this);
         btn_add_exhibition = (Button) findViewById(R.id.btn_add_exhibition);
         btn_save_exhibition = (Button) findViewById(R.id.btn_save_exhibition);
+        txt_date = (TextView) findViewById(R.id.txt_date);
+        txt_date.setText(Config.formatDate());
         btn_add_exhibition.setOnClickListener(this);
         btn_save_exhibition.setOnClickListener(this);
         modelExhibitions = new ModelExhibitions(dtoBundle, this);
@@ -126,6 +130,11 @@ public class ReportExhibition extends AppCompatActivity implements View.OnClickL
         adapterExhibicion.notifyDataSetChanged();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txt_date.setText(Config.formatDate());
+    }
 
     public void onEvent(DtoReportExhibitionMantained dtoReportExhibitionMantained) {
         Log.e("hash", " event " + dtoReportExhibitionMantained.toString());

@@ -105,6 +105,8 @@ public class MenuReport extends AppCompatActivity implements OnItemClickListener
             validate(new Intent(this, ScanAlert.class), getResources().getInteger(R.integer.ALERT));
         } else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.PRE_CHECK_OUT)) {
             validate(new Intent(this, CheckOut.class), getResources().getInteger(R.integer.PRE_CHECK_OUT));
+        } else if (model.getItemModule(position).getIdItemRelation() == getResources().getInteger(R.integer.VOLUMEN_DATOS)) {
+            validate(new Intent(this, ReportDataVolumen.class), getResources().getInteger(R.integer.VOLUMEN_DATOS));
         }
     }
 
