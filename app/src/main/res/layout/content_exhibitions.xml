@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="@string/report_exhibition_name"
             android:textSize="@dimen/textSizeNormal" />
 
         <TextView
@@ -29,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
 
-            android:text="@string/report_family"
             android:textSize="@dimen/textSizeNormal" />
 
         <TextView
@@ -37,7 +35,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="@string/report_location"
             android:textSize="@dimen/textSizeNormal" />
 
         <TextView

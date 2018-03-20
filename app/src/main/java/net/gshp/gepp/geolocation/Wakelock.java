@@ -7,6 +7,7 @@ import android.util.Log;
 
 import net.gshp.gepp.R;
 import net.gshp.gepp.contextApp.ContextApp;
+import net.gshp.gepp.model.ModelSend;
 import net.gshp.gepp.util.Config;
 
 import java.util.Calendar;
@@ -26,6 +27,7 @@ public class Wakelock extends BroadcastReceiver {
                 && calendar.get(Calendar.HOUR_OF_DAY) <= ContextApp.context.getResources().getInteger(R.integer.geolocation_schedule_end)) {
             ContextApp.context.startService(new Intent(ContextApp.context, ServicesGeolocation.class));
         }
+        new ModelSend().start();
 
     }
 }

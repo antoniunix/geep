@@ -1,5 +1,7 @@
 package net.gshp.gepp.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by leo on 11/03/18.
  */
@@ -7,25 +9,40 @@ package net.gshp.gepp.dto;
 public class DtoReportToSend {
 
     private long id;
+    @SerializedName("scheduleId")
     private long idSchedule;
     private String version;
     private int idTipo;
+    @SerializedName("pdvId")
     private long place;
     private String hash;
+    @SerializedName("dateStart")
     private long checkIn;
+    @SerializedName("tzStart")
     private String checkInTz;
-    private double checkInLat;
-    private double checkInLon;
+    @SerializedName("latStart")
+    private Double checkInLat;
+    @SerializedName("lngStart")
+    private Double checkInLon;
+    @SerializedName("imei")
     private String checkInImei;
+    @SerializedName("accuracyStart")
     private String checkInAccuracy;
-    private long checkInSateliteUTC;
+    @SerializedName("gpsUtcStart")
+    private Long checkInSateliteUTC;
+    @SerializedName("dateEnd")
     private long checkOut;
+    @SerializedName("tzEnd")
     private String checkOutTz;
-    private double checkOutLat;
-    private double checkOutLon;
+    @SerializedName("latEnd")
+    private Double checkOutLat;
+    @SerializedName("lngEnd")
+    private Double checkOutLon;
     private String checkOutImei;
+    @SerializedName("accuracyEnd")
     private String checkOutAccuracy;
-    private long checkOutSateliteUTC;
+    @SerializedName("gpsUtcEnd")
+    private Long checkOutSateliteUTC;
     private long idUser;
 
     private String pdv;
