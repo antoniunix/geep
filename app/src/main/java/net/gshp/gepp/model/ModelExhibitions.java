@@ -57,6 +57,10 @@ public class ModelExhibitions {
                     case 3:
                         lstDtoReportExhibitionMantaineds.add(i, new DtoReportExhibitionMantained().setId_exhibition_group(-3));
                         break;
+                    case 4:
+                        lstDtoReportExhibitionMantaineds.add(i, new DtoReportExhibitionMantained().setId_exhibition_group(-4));
+                        break;
+
                 }
             }
         }

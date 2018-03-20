@@ -110,7 +110,7 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
         switch (dto.getId_exhibition_group()) {
             case -1:
                 txt_name.setTextColor(getContext().getResources().getColor(R.color.color_white));
-                txt_name.setText("CORPORATIVA");
+                txt_name.setText("Enfriadores");
                 txt_description.setVisibility(View.GONE);
                 txt_location.setVisibility(View.GONE);
                 txt_num_photos.setVisibility(View.GONE);
@@ -121,7 +121,7 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 break;
             case -2:
                 txt_name.setTextColor(getContext().getResources().getColor(R.color.color_white));
-                txt_name.setText("REGIONAL");
+                txt_name.setText("Guía de Mercadeo");
                 txt_description.setVisibility(View.GONE);
                 txt_location.setVisibility(View.GONE);
                 txt_num_photos.setVisibility(View.GONE);
@@ -132,7 +132,18 @@ public class AdapterExhibicion extends ArrayAdapter<DtoReportExhibitionMantained
                 break;
             case -3:
                 txt_name.setTextColor(getContext().getResources().getColor(R.color.color_white));
-                txt_name.setText("ADICIONAL");
+                txt_name.setText("Iniciativa Trade");
+                txt_description.setVisibility(View.GONE);
+                txt_location.setVisibility(View.GONE);
+                txt_num_photos.setVisibility(View.GONE);
+                rdb_yes.setVisibility(View.GONE);
+                rdb_no.setVisibility(View.GONE);
+                img_delete.setVisibility(View.GONE);
+                lyt_row_exhibition.setBackgroundColor(ContextApp.context.getResources().getColor(R.color.colorBtnBluePrimary));
+                break;
+            case -4:
+                txt_name.setTextColor(getContext().getResources().getColor(R.color.color_white));
+                txt_name.setText("Promocional");
                 txt_description.setVisibility(View.GONE);
                 txt_location.setVisibility(View.GONE);
                 txt_num_photos.setVisibility(View.GONE);
