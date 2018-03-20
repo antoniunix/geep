@@ -145,7 +145,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener, 
 
     @Override
     protected void onResume() {
-        super.onResume();
+         super.onResume();
         modelAHBottomNavigation.onResume();
         txt_date.setText(Config.formatDate());
 
