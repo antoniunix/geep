@@ -33,9 +33,11 @@ import net.gshp.gepp.dao.DaoMeasurementModule;
 import net.gshp.gepp.dao.DaoMessage;
 import net.gshp.gepp.dao.DaoPdv;
 import net.gshp.gepp.dao.DaoPdvCs;
+import net.gshp.gepp.dao.DaoPdvGeneral;
 import net.gshp.gepp.dao.DaoRtm;
 import net.gshp.gepp.dao.DaoScannAlert;
 import net.gshp.gepp.dao.DaoTypeExhibition;
+import net.gshp.gepp.dao.DaoUserInfo;
 import net.gshp.gepp.dto.DtoCExhibition;
 import net.gshp.gepp.dto.DtoCStatusScann;
 import net.gshp.gepp.dto.DtoCTypeCatalogExhibition;
@@ -55,9 +57,11 @@ import net.gshp.gepp.dto.DtoMeasurementModule;
 import net.gshp.gepp.dto.DtoMessage;
 import net.gshp.gepp.dto.DtoPdv;
 import net.gshp.gepp.dto.DtoPdvCS;
+import net.gshp.gepp.dto.DtoPdvInfoGeneral;
 import net.gshp.gepp.dto.DtoRtm;
 import net.gshp.gepp.dto.DtoScannAlert;
 import net.gshp.gepp.dto.DtoTypeExhibition;
+import net.gshp.gepp.dto.DtoUserInfo;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -502,6 +506,26 @@ public class ModelDataBaseSync {
                         List<DtoPdvCS> lst;
                         lst = new Gson().fromJson(nt.getResponse(), typeObjectGson);
                         DaoPdvCs dao = new DaoPdvCs();
+                        dao.delete();
+                        dao.Insert(lst);
+                    }else if(nt.getTag().equals("pos_general")){
+                        Log.d("SYNC", "pos_general" + nt.getResponse());
+                        typeObjectGson = new TypeToken<List<DtoPdvInfoGeneral>>() {
+                        }.getType();
+                        List<DtoPdvInfoGeneral> lst;
+                        lst = new Gson().fromJson(nt.getResponse(), typeObjectGson);
+                        Log.d("SYNC", "user_info size" + lst.size()+typeObjectGson.toString());
+                        DaoPdvGeneral dao = new DaoPdvGeneral();
+                        dao.delete();
+                        dao.Insert(lst);
+                    }else if(nt.getTag().equals("user_info")){
+                        Log.d("SYNC", "user_info" + nt.getResponse());
+                        typeObjectGson = new TypeToken<List<DtoUserInfo>>() {
+                        }.getType();
+                        List<DtoUserInfo> lst;
+                        lst = new Gson().fromJson(nt.getResponse(), typeObjectGson);
+                        Log.d("SYNC", "user_info size" + lst.size()+typeObjectGson.toString());
+                        DaoUserInfo dao = new DaoUserInfo();
                         dao.delete();
                         dao.Insert(lst);
                     }

@@ -384,7 +384,7 @@ public class Tables {
     public final String TableMeasurementCauseExhibition = "CREATE TABLE measurement_cause_exhibition(" +
             "id_measurement INTEGER," +
             "id_item_relation INTEGER," +
-            "idGroup INTEGER,"+
+            "idGroup INTEGER," +
             "value TEXT)";
 
     public final String TableMeasurementExhibitionClient = "CREATE TABLE measurement_exhibition_client("
@@ -487,5 +487,61 @@ public class Tables {
             "starbucks_color," +
             "mixers_color)";
 
+    public final String TablePdvGeneral = "CREATE TABLE pdvInfoGeneral(" +
+            "id_pdv INTEGER," +
+            "total_producto TEXT," +
+            "total_producto_bandera INTEGER," +
+            "colas_porcentaje TEXT," +
+            "colas_bandera INTEGER," +
+            "sabores_porcentaje TEXT," +
+            "sabores_bandera INTEGER," +
+            "agua_porcentaje TEXT," +
+            "agua_bandera INTEGER," +
+            "gatorade_porcentaje TEXT," +
+            "gatorade_bandera INTEGER," +
+            "lipton_porcentaje TEXT," +
+            "lipton_bandera INTEGER," +
+            "jumex_porcentaje TEXT," +
+            "jumex_bandera INTEGER," +
+            "starbucks_porcentaje TEXT," +
+            "starbucks_bandera INTEGER," +
+            "mixers_porcentaje TEXT," +
+            "mixers_bandera INTEGER)";
+
+    public final String TableUserInfo = "CREATE TABLE userInfo(" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"+
+            "numero_semana TEXT," +
+            "porcentaje_semana TEXT," +
+            "foto_exito TEXT," +
+            "efectividad_porcentaje_semana TEXT," +
+            "efectividad_porcentaje_semana_bandera TEXT," +
+            "efectividad_acumulado_anual TEXT," +
+            "costo_inasistencia TEXT," +
+            "superior_tiendas TEXT," +
+            "superior_porcentaje TEXT," +
+            "normal_tiendas TEXT," +
+            "normal_porcentaje TEXT," +
+            "basica_tiendas TEXT," +
+            "basica_porcentaje TEXT," +
+            "critica_tiendas TEXT," +
+            "critica_porcentaje TEXT," +
+            "sinmedicion_tienda TEXT," +
+            "sinmedicion_porcentaje TEXT," +
+            "colas TEXT," +
+            "colas_color TEXT," +
+            "sabores TEXT," +
+            "sabores_color TEXT," +
+            "agua TEXT," +
+            "agua_color TEXT," +
+            "gatorade TEXT," +
+            "gatorade_color TEXT," +
+            "lipton TEXT," +
+            "lipton_color TEXT," +
+            "jumex TEXT," +
+            "jumex_color TEXT," +
+            "starbucks TEXT," +
+            "starbucks_color TEXT," +
+            "mixers TEXT," +
+            "mixers_color TEXT)";
 
 }

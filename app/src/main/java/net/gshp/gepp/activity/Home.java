@@ -21,6 +21,7 @@ import net.gshp.gepp.dialog.DialogChangePassword;
 import net.gshp.gepp.dialog.DialogHelp;
 import net.gshp.gepp.dialog.DialogSync;
 import net.gshp.gepp.dto.DtoCoopGeneral;
+import net.gshp.gepp.dto.DtoUserInfo;
 import net.gshp.gepp.geolocation.AlarmGeolocation;
 import net.gshp.gepp.listener.OnDissmisDialogListener;
 import net.gshp.gepp.model.ModelAHBottomNavigation;
@@ -32,7 +33,7 @@ import net.gshp.gepp.util.Config;
  * Created by leo on 8/03/18.
  */
 
-public class Home extends AppCompatActivity implements OnDissmisDialogListener,View.OnClickListener {
+public class Home extends AppCompatActivity implements OnDissmisDialogListener, View.OnClickListener {
 
     private TextView txt_name_user, txt_code_user, txt_date, txtNumWeek, txtPorcentWeek, txtAcumulatedAnnual, txtLabelStore, txt_version,
             txtNumWeekEfectividad, txtAcumulatedWeekEfectividad, txtAcumulatedAnnualEfectividad, txtCosto;
@@ -41,14 +42,15 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
     private ImageView imgStatusPerfect, imgStatusSuperior, imgStatusRegular, imgStatusCritica, imgStatusSinMedicion;
     private TextView txt_head_efectividad, txt_head_acumulado, txtLabelResume, txtPerfect, txtPerctStore, txtSuperior, txtRegular,
             txtCritica, txtSinMedicion, txt_head_costo, txt_head_acumulado1, txtSuperiorStore, txtRegularStore, txtCriticaStore, txtSinMedicionStore;
-    private ImageButton btnHelp,btnAccount,btnSynck;
+    private ImageButton btnHelp, btnAccount, btnSynck;
     private BottomNavigationView bottomNavigationView;
     private DtoCoopGeneral dtoCoopGeneral;
     private ModelHome modelHome;
     private SharedPreferences preferences;
     private ModelAHBottomNavigation modelAHBottomNavigation;
+    private DtoUserInfo dtoUserInfo;
 
-    private void init(){
+    private void init() {
         AlarmGeolocation.getInstance();
         modelHome = new ModelHome();
         modelAHBottomNavigation = new ModelAHBottomNavigation(this);
@@ -63,9 +65,10 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
         txtNumWeekEfectividad = (TextView) findViewById(R.id.txtNumWeekEfectividad);
         txtAcumulatedWeekEfectividad = (TextView) findViewById(R.id.txtAcumulatedWeekEfectividad);
         txtAcumulatedAnnualEfectividad = (TextView) findViewById(R.id.txtAcumulatedAnnualEfectividad);
-        btnHelp=(ImageButton) findViewById(R.id.btnHelp);
-        btnAccount=(ImageButton) findViewById(R.id.btnAccount);
-        btnSynck=(ImageButton) findViewById(R.id.btnSynck);
+        txtCosto = (TextView) findViewById(R.id.txtCosto);
+        btnHelp = (ImageButton) findViewById(R.id.btnHelp);
+        btnAccount = (ImageButton) findViewById(R.id.btnAccount);
+        btnSynck = (ImageButton) findViewById(R.id.btnSynck);
 
         btnHelp.setOnClickListener(this);
         btnAccount.setOnClickListener(this);
@@ -76,6 +79,20 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        setInfoUser();
+
+    }
+
+    private void setInfoUser() {
+        dtoUserInfo = modelHome.getUserInfo();
+        txtNumWeek.setText(dtoUserInfo.getNumero_semana());
+        txtNumWeekEfectividad.setText("SEMANA" + dtoUserInfo.getNumero_semana());
+        txtAcumulatedAnnualEfectividad.setText(dtoUserInfo.getEfectividad_acumulado_anual());
+        txtNumWeek.setText("SEMANA" + dtoUserInfo.getNumero_semana());
+        txtCosto.setText("$" + dtoUserInfo.getCosto_inasistencia());
+        txtAcumulatedWeekEfectividad.setText(dtoUserInfo.getEfectividad_porcentaje_semana() + "%");
+        txtPorcentWeek.setText(dtoUserInfo.getEfectividad_porcentaje_semana() + "%");
+        txtAcumulatedAnnual.setText(dtoUserInfo.getFoto_exito() + "%");
     }
 
     @Override
@@ -85,6 +102,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
         getSupportActionBar().hide();
         init();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -105,8 +123,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
                     new ModelSendDataBase().sendBD();
                 }
             }.start();
-        }
-        else if (v.getId() == R.id.action_change_pass) {
+        } else if (v.getId() == R.id.action_change_pass) {
             DialogChangePassword dialogChangePassword = new DialogChangePassword();
             dialogChangePassword.show(getSupportFragmentManager(), "Dialog Change Password");
         } else if (v.getId() == R.id.btnHelp) {
@@ -131,6 +148,7 @@ public class Home extends AppCompatActivity implements OnDissmisDialogListener,V
         super.onResume();
         modelAHBottomNavigation.onResume();
         txt_date.setText(Config.formatDate());
+
     }
 
 
